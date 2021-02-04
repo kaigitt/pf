@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12"><h1>Users#show</h1></div>
+
+    <div class="col-8-offset ">
+      <%= @user.name %>
+      <%= @user.introduction %>
+      <%= attachment_image_tag @user, :profile_image %>
+    </div>
+    <div class="col-12">
+      <%= link_to "#" do %>フォロー <%= @user.following_user.count %><% end %>
+    </div>
+    <div class="col-12">
+      <%= link_to "#" do %>フォロワー <%= @user.follower_user.count %><% end %>
+    </div>
+    <% if current_user.id != @user.id %>　<!--の条件にのみ表示する項目-->
+      <% if current_user.following?(@user)%>
+        <%= link_to "フォロー外す", user_unfollow_path(@user), method: :delete %>
+      <% else %>
+        <%= link_to "フォローする", user_follow_path(@user), method: :post %>
+      <% end %>
+    <% else %>
+      <%= link_to "edit", edit_user_path %>
+    <% end %>
+
+  </div>
+</div>

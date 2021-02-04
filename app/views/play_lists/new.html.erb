@@ -1,0 +1,24 @@
+<h1>PlayLists#new</h1>
+<p>Find me in app/views/play_lists/new.html.erb</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-7-offset">
+
+      <%= form_with model: @play_list, url: play_lists_path,method: :post, local: true do |f|%>
+        <div class="field">
+            <%= f.label :title %>
+            <%= f.text_field :title %>
+         </div>
+         <div class="field">
+            <%= f.label :body %>
+            <%= f.text_field :body %>
+         </div>
+
+
+        <%= f.submit '作成する' %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
