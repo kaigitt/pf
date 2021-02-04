@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_04_021138) do
+ActiveRecord::Schema.define(version: 2021_02_04_094548) do
 
   create_table "artists", force: :cascade do |t|
     t.integer "name"
@@ -35,11 +35,10 @@ ActiveRecord::Schema.define(version: 2021_02_04_021138) do
 
   create_table "play_list_songs", force: :cascade do |t|
     t.integer "play_list_id"
-    t.integer "artist_id"
-    t.string "name"
-    t.text "description"
+    t.integer "song_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+
   end
 
   create_table "play_lists", force: :cascade do |t|
@@ -54,6 +53,14 @@ ActiveRecord::Schema.define(version: 2021_02_04_021138) do
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "songs", force: :cascade do |t|
+    t.integer "artist_id"
+    t.string "name"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
