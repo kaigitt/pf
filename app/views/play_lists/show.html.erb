@@ -1,2 +1,32 @@
-<h1>PlayLists#show</h1>
-<p>Find me in app/views/play_lists/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12"><h1>プレイリスト詳細画面</h1></div>
+    <table>
+      <tr>
+        <td>プレイリスト名</td>
+        <td><%= @play_list.title %></td>
+        <td>プレイリスト説明</td>
+        <td><%= @play_list.title %></td>
+      </tr>
+      <tbody class="mt-2">
+        <tr>
+          <td>タグ</td>
+          <% @play_list_tags.each do |tag| %>
+            <td><%= tag.name %>(<%= tag.tag_maps.count%>)</td>
+          <% end %>
+        </tr>
+        <tr>
+          <% @comments.each do |comment|%>
+            <td><%= comment.content %></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+      <%= form_with model: @comment, url: play_list_comments_path(@play_list), local: true do |f| %>
+        <%= f.text_field :content, size: "50x50" %>
+        <%= f.submit "コメント" %>
+      <% end %>
+    </div>
+  </div>
+</div>

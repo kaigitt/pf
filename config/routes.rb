@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     delete 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
   end
   resources :play_lists, only: [:new, :create, :show, :edit, :update, :destroy] do
-    resources :play_list_comments, only: [:create, :show, :edit, :update, :destroy]
+    resources :comments, only: [:create, :show, :edit, :update, :destroy]
   end
   resources :favorites, only: [:create, :destroy]
   resources :tag_maps, only: [:create, :destroy]
