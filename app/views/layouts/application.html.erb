@@ -22,6 +22,9 @@
             <%= link_to("Mypage", user_path(current_user), {class: "fas fa-home nav-item nav-link text-light"}) %>
           </li>
           <li class="nav-item text-light nav-link">
+            <%= link_to("つくる", new_play_list_path, {class: "fas fa-sign-out-alt nav-item nav-link text-light"}) %>
+          </li>
+          <li class="nav-item text-light nav-link">
             <%= link_to("Logout", destroy_user_session_path, {class: "fas fa-sign-out-alt nav-item nav-link text-light", method: :delete}) %>
           </li>
           <% else %>

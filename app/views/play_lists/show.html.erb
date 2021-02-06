@@ -1,2 +1,58 @@
-<h1>PlayLists#show</h1>
-<p>Find me in app/views/play_lists/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12"><h1>プレイリスト詳細画面</h1></div>
+    <table>
+      <tr>
+        <td>プレイリスト名</td>
+        <td><%= @play_list.title %></td>
+      </tr>
+      <tbody>
+        <tr>
+          <td>プレイリスト説明</td>
+          <td><%= @play_list.body %></td>
+        </tr>
+        <tr>
+          <td>タグ</td>
+          <% @play_list_tags.each do |tag| %>
+            <td><%= tag.name %>(<%= tag.tag_maps.count%>)</td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="favorites">
+      <% if @play_list.favorited_by?(current_user) %>
+    <p>
+      <%= link_to play_list_favorite_path(@play_list), method: :delete do %>
+        ♥<%= @play_list.favorites.count %> いいね
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to play_list_favorites_path(@play_list), method: :post do %>
+        ♡<%= @play_list.favorites.count %> いいね
+      <% end %>
+    </p>
+  <% end %>
+    </div>
+
+    <% @comments.each do |comment|%>
+      <div class="col-12 mt-5">
+        <%= comment.content %>
+      </div>
+    <% end %>
+
+    <div class="col-12">
+    <table>
+      <tbody>
+        コメント欄
+        <tr>
+          <%= form_with model:[@play_list, @comment], local: true do |f| %>
+          <td><%= f.text_area :content, size: "50x5" %><%= f.submit "コメント" %></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

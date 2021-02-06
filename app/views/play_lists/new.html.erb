@@ -1,12 +1,12 @@
-<h1>PlayLists#new</h1>
-<p>Find me in app/views/play_lists/new.html.erb</p>
-
 <div class="container">
   <div class="row">
-    <div class="col-7-offset">
+    <div class="col-12">
+      <h1 class=" text-algin-center">プレイリスト新規登録画面</h1>
+    </div>
 
-      <%= form_with model: @play_list, url: play_lists_path,method: :post, local: true do |f|%>
-        <div class="field">
+    <div class="col-12">
+      <%= form_with url: new_song_path,method: :post, local: true do |f|%>
+         <div class="field">
             <%= f.label :title %>
             <%= f.text_field :title %>
          </div>
@@ -14,11 +14,13 @@
             <%= f.label :body %>
             <%= f.text_field :body %>
          </div>
-
-
-        <%= f.submit '作成する' %>
+         <div class="field">
+            <%= f.label :tag_name %>
+            <%= f.text_field :tag_name %>
+         </div>
+      <%= f.submit '曲を追加する' %>
       <% end %>
-
     </div>
   </div>
 </div>
+

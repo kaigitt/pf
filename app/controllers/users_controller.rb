@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    @play_lists = @user.play_lists
   end
 
   def edit
