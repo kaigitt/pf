@@ -5,12 +5,14 @@ class PlayList < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :play_list_songs, dependent: :destroy
   has_many :songs, through: :play_list_songs
-  accepts_nested_attributes_for :songs, allow_destroy: true
   has_many :tag_maps, dependent: :destroy
   has_many :tags, through: :tag_maps
 
-  accepts_nested_attributes_for :play_list_songs, allow_destroy: true
   attachment :play_list_image
+
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
+  end
 
   with_options presence: true do
     validates :title
@@ -36,16 +38,5 @@ class PlayList < ApplicationRecord
       new_tag = Tag.find_or_create_by(name: new)
       self.tags << new_tag
     end
-  end
-end
-
-
-def create
-  @article = current_user.articles.new(article_params)
-  if @article.categories.include?(params[:categorie])
-    すでにカテゴリーがあるとき
-    @categories.
-  else
-    新規でつくる場合
   end
 end

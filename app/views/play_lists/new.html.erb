@@ -1,10 +1,12 @@
 <div class="container">
   <div class="row">
-    <h1>プレイリスト新規登録画面</h1>
-    <div class="col-7-offset">
+    <div class="col-12">
+      <h1 class=" text-algin-center">プレイリスト新規登録画面</h1>
+    </div>
 
-      <%= form_with model: @play_list, url: play_lists_path, local: true do |f|%>
-        <div class="field">
+    <div class="col-12">
+      <%= form_with url: new_song_path,method: :post, local: true do |f|%>
+         <div class="field">
             <%= f.label :title %>
             <%= f.text_field :title %>
          </div>
@@ -13,24 +15,10 @@
             <%= f.text_field :body %>
          </div>
          <div class="field">
-            <%= f.label :name %>
+            <%= f.label :tag_name %>
             <%= f.text_field :tag_name %>
          </div>
-         <!----ここから曲の投稿-->
-         <div class=“song_form">
-        <%= f.fields_for :songs do |song| %>
-
-        <%= song.label :name %>
-        <%= song.text_field :name %>
-
-        <%= song.label :description %>
-        <%= song.text_field :description %>
-
-        <%= f.link_to_add :記事を追加, :songs %>
-
-      <% end %>
-         </div>
-        <%= f.submit '作成する' %>
+      <%= f.submit '曲を追加する' %>
       <% end %>
     </div>
   </div>
