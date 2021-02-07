@@ -8,28 +8,30 @@ class PlayList < ApplicationRecord
   has_many :tag_maps, dependent: :destroy
   has_many :tags, through: :tag_maps
 
-  attachment :play_list_image
+  accepts_nested_attributes_for :songs, :play_list_songs
 
-  def favorited_by?(user)
-    favorites.where(user_id: user.id).exists?
-  end
+  attachment :play_list_image
 
   with_options presence: true do
     validates :title
     validates :body
   end
 
-  def save_song(sent_songs)
-    sent_songs.each do |song|
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
+  end
+
+  def save_song(songs)
+    songs.each do |song|
       song.save
     end
+
   end
 
   def save_tag(sent_tags)
     current_tags = self.tags.pluck(:name) unless self.tags.nil?
     old_tags = current_tags - sent_tags
     new_tags = sent_tags - current_tags
-
     old_tags.each do |old|
       self.tags.delete Tag.find_by(name: old)
     end

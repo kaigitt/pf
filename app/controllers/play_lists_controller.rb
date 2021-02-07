@@ -1,14 +1,14 @@
 class PlayListsController < ApplicationController
   def new
     @play_list = PlayList.new
-    @song = Song.new
+    5.times { @play_list.songs.build }
   end
 
   def create
-    play_list = Play_lists.new(play_list_params)
+    @play_list = PlayList.new(play_list_params)
+    @play_list.user_id = current_user.id
     tag_list = params[:play_list][:tag_name].split(nil)
-    song = Song.new(song_params)
-    if @play_list.save
+    if @play_list.save!
       @play_list.save_tag(tag_list)
       redirect_to play_list_path(@play_list)
     else
@@ -34,10 +34,6 @@ class PlayListsController < ApplicationController
 
   private
   def play_list_params
-    params.require(:play_list).permit(:play_list_image_id, :title, :body).merge(user_id: current_user.id)
-  end
-
-  def song_params
-    params.require(:song).permit(:name, :description).merge(user_id: current_user.id)
+    params.require(:play_list).permit(:play_list_image, :title, :body, play_list_songs_attributes: [:tag_name], songs_attributes: [:name, :description])
   end
 end

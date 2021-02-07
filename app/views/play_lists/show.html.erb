@@ -8,6 +8,10 @@
       </tr>
       <tbody>
         <tr>
+          <td>プレイリスト画像</td>
+          <td><%= attachment_image_tag @play_list, :play_list_image, size: "50x50" %></td>
+        </tr>
+        <tr>
           <td>プレイリスト説明</td>
           <td><%= @play_list.body %></td>
         </tr>
@@ -15,6 +19,15 @@
           <td>タグ</td>
           <% @play_list_tags.each do |tag| %>
             <td><%= tag.name %>(<%= tag.tag_maps.count%>)</td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+    <table>
+      <tbody>
+        <tr>
+          <% @play_list.songs.each do |song| %>
+          <td><%= song.name%><%= song.description %></td>
           <% end %>
         </tr>
       </tbody>
