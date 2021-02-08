@@ -8,7 +8,7 @@ class PlayListsController < ApplicationController
     @play_list = PlayList.new(play_list_params)
     @play_list.user_id = current_user.id
     tag_list = params[:play_list][:tag_name].split(nil)
-    if @play_list.save!
+    if @play_list.save
       @play_list.save_tag(tag_list)
       redirect_to play_list_path(@play_list)
     else

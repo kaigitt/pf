@@ -1,37 +1,27 @@
 <div class="container">
-  <div class="row">
     <div class="col-12"><h1>プレイリスト詳細画面</h1></div>
-    <table>
-      <tr>
-        <td>プレイリスト名</td>
-        <td><%= @play_list.title %></td>
-      </tr>
-      <tbody>
-        <tr>
-          <td>プレイリスト画像</td>
-          <td><%= attachment_image_tag @play_list, :play_list_image, size: "50x50" %></td>
-        </tr>
-        <tr>
-          <td>プレイリスト説明</td>
-          <td><%= @play_list.body %></td>
-        </tr>
-        <tr>
-          <td>タグ</td>
-          <% @play_list_tags.each do |tag| %>
-            <td><%= tag.name %>(<%= tag.tag_maps.count%>)</td>
+    <div class="row">
+      <div class="col-8"><h3><%= @play_list.title %></h3></div>
+      <div class="col-4"><%= attachment_image_tag @play_list, :play_list_image, size: "50x50" %></div>
+    </div>
+    <div class="row">
+      <div class="col-8"><h3><%= @play_list.body %></h3></div>
+      <div class="col-4"></div>
+    </div>
+    <div class="row">
+      <div class="col-8"><% @play_list_tags.each do |tag| %><span><%= tag.name %>(<%= tag.tag_maps.count%>)</span><% end %></div>
+      <div class="col-4"></div>
+    </div>
+    <div class="row">
+      <div class="col-8">
+        <ul>
+        <% @play_list.songs.each do |song| %>
+          <li><%= song.name %><%= song.description %></li>
           <% end %>
-        </tr>
-      </tbody>
-    </table>
-    <table>
-      <tbody>
-        <tr>
-          <% @play_list.songs.each do |song| %>
-          <td><%= song.name%><%= song.description %></td>
-          <% end %>
-        </tr>
-      </tbody>
-    </table>
+        </ul>
+      </div>
+      <div class="col-4"></div>
+    </div>
 
     <div class="favorites">
       <% if @play_list.favorited_by?(current_user) %>
@@ -51,7 +41,11 @@
 
     <% @comments.each do |comment|%>
       <div class="col-12 mt-5">
-        <%= comment.content %>
+        <div class="row">
+          <div class="col-4"><%= attachment_image_tag comment.user, :profile_image, size: "50x50" %></div>
+          <div class="col-8"><%= comment.content %></div>
+        </div>
+
       </div>
     <% end %>
 
@@ -66,6 +60,4 @@
         </tr>
       </tbody>
     </table>
-
-  </div>
 </div>

@@ -10,23 +10,35 @@
   </head>
 
   <body>
-    <header>
-       <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#343a40;">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <header class="col-8-offset">
+       <nav class="navbar navbar-expand-lg navbar-light">
        <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           <% if user_signed_in?  %>
-          <li class="nav-item text-light nav-link ">
-            <%= link_to("Home", root_path, {class: "fas fa-home nav-item nav-link text-light"}) %>
+          <li class="nav-item text-light nav-link mt-2">
+            <%= form_with url: searches_path, method: :get, local: true do |f| %>
+              <%= f.text_field :search , class: "rounded"%>
+              <%= f.submit :"検索" %>
+              <% end %>
           </li>
           <li class="nav-item text-light nav-link ">
-            <%= link_to("Mypage", user_path(current_user), {class: "fas fa-home nav-item nav-link text-light"}) %>
+            <%= link_to("Home", root_path, {class: "nav-item nav-link text-light"}) %>
           </li>
           <li class="nav-item text-light nav-link">
-            <%= link_to("つくる", new_play_list_path, {class: "fas fa-sign-out-alt nav-item nav-link text-light"}) %>
+            <%= link_to("投稿する", new_play_list_path, {class: "nav-item nav-link text-light"}) %>
           </li>
-          <li class="nav-item text-light nav-link">
-            <%= link_to("Logout", destroy_user_session_path, {class: "fas fa-sign-out-alt nav-item nav-link text-light", method: :delete}) %>
-          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-light mt-2" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">マイページ</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="/users/<%= current_user.id %>}">マイページ</a>
+                <a class="dropdown-item" href="/users/#{<%= current_user.id %>}/edit">プロフィール編集</a>
+              <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/users/sign_out" data-method="delete">ログアウト</a>
+              </div>
+            </li>
           <% else %>
           <li class="nav-item text-light nav-link ">
             <%= link_to("Home", root_path, {class: "fas fa-home nav-item nav-link text-light"}) %>
@@ -40,8 +52,13 @@
           <% end %>
         </ul>
         </div>
-         </nav>
+        </nav>
     </header>
+        </div>
+      </div>
+    </div>
+
     <%= yield %>
   </body>
 </html>
+

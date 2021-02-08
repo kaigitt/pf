@@ -1,22 +1,41 @@
 <div class="container">
-  <div class="row">
-    <div class="col-12-offset"><h1>ユーザ編集画面</h1></div>
-    <div class="">
-      <%= form_with model: @user, local: true do |f|%>
-       <div class="form-group">
-         name
-         <%= f.text_field :name, class: "form-control", value: @user.name %>
+  <div class="row mt-5">
+    <div class="col-4 d-flex justify-content-center">
+      <div class="card" style="width: 18rem;">
+        <div class="card-header text-align-center">設定</div>
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item"><a href="#">プロフィール編集</a></li>
+        <li class="list-group-item"><a href="#">アカウント情報</a></li>
+        <li class="list-group-item"><a href="#">ソーシャル連携</a></li>
+      </ul>
+      <div class="card-header">musicrowsについて</div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><a href="#"></a></li>
+        <li class="list-group-item"><a href="#">お問い合わせ</a></li>
+      </ul>
+      </div>
+    </div>
+    <div class="col-7 bg-white">
+      <div class="setting-right p-4 ">
+        <div class="p-3">
+          <%= form_with model: @user, local: true do |f|%>
+            <div><%= attachment_image_tag @user, :profile_image, size: "80x80" %></div>
+            <div class="form-group mt-2">
+            名前
+            <%= f.text_field :name, class: "form-control mt-1", value: @user.name %>
+            </div>
+            <div class="form-group">
+            ユーザ画像
+            <%= f.attachment_field :profile_image, class: "form-control mt-1", value: @user.profile_image %>
+            </div>
+            <div class="form-group">
+            introduction
+            <%= f.text_field :introduction, class: "form-control mt-1", value: @user.introduction, size: "100x200" %>
+            </div>
+            <%= f.submit "変更内容を保存する",class: 'btn btn-success' %>
+          <% end %>
        </div>
-       <div class="form-group">
-         introduction
-         <%= f.text_field :introduction, class: "form-control", value: @user.introduction %>
-       </div>
-       <div class="form-group">
-         ユーザ画像
-         <%= f.attachment_field :profile_image, class: "form-control", value: @user.profile_image %>
-       </div>
-      <%= f.submit "編集内容を保存",class: 'btn btn-success' %>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>
