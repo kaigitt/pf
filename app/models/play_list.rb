@@ -3,6 +3,7 @@ class PlayList < ApplicationRecord
   belongs_to :user
   has_many :play_list_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :user_favorited, through: :favorites
   has_many :play_list_songs, dependent: :destroy
   has_many :songs, through: :play_list_songs
   has_many :tag_maps, dependent: :destroy
@@ -17,15 +18,13 @@ class PlayList < ApplicationRecord
     validates :body
   end
 
-  def favorited_by?(user)
-    favorites.where(user_id: user.id).exists?
+  def self.search_pl(search)
+    return PlayList.all unless search
+    PlayList.where(['title LIKE ? OR body LIKE ?', "%#{search}%","%#{search}%"])
   end
 
-  def save_song(songs)
-    songs.each do |song|
-      song.save
-    end
-
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
   end
 
   def save_tag(sent_tags)

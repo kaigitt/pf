@@ -1,0 +1,11 @@
+<div class="container">
+  <% if @search.present? %>
+    <% @play_lists.each do |play_list| %>
+      <div class="row mt-5 bg-white">
+        <div class="col-3"><%= attachment_image_tag play_list, :play_list_image, size: "50x50" %></div>
+        <div class="col-3"><%= play_list.title %></div>
+        <div class="col-3"><%= play_list.body %></div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

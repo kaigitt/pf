@@ -17,5 +17,13 @@
 //= require jquery
 //= require popper
 //= require bootstrap-sprockets
-//= require jquery_nested_form
-//= require cocoon
+
+$(function(){
+  let tabs = $(".tab");
+  $(".tab").on("click", function() {
+    $(".active").removeClass("active");
+    $(this).addClass("active");
+    const index = tabs.index(this);
+    $(".content").removeClass("show").eq(index).addClass("show");
+  })
+})
