@@ -22,7 +22,9 @@ Rails.application.routes.draw do
     sessions: 'admins/sessions'
   }
   namespace :admin do
-    resources :users, only: [:index, :edit, :update]
+    resources :users, only: [:index, :show, :edit, :update]
     resources :play_lists, only: [:index, :edit, :update]
+    put "/users/:id/hide" => "users#hide", as: 'users_hide'
+    put "/users/:id/open" => "users#open", as: 'users_open'
   end
 end
