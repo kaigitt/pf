@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+
   def show
     @user = User.find(params[:id])
     @play_lists = @user.play_lists
@@ -6,6 +8,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @contact = Contact.new
   end
 
   def update

@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-10-offset bg-white p-5 rounded">
+    <div class="contact-head border-bottom my-3 pb-3"><h1 class="d-flex justify-content-center">お問い合わせ</h1></div>
+    <div class="contact-text my-3">
+      <p>サービス品質向上のため、皆様からのお問い合わせをお待ちしております。</br>ご利用にあたって改善すべき点や欲しい機能などお気づきの点ございましたら、</br>以下にご記入ください</p>
+    </div>
+    <div class="form my-3">
+    <%= form_with model: @contact do |f| %>
+    <div class=" form-group contact-mail">
+      <%= f.label :name %><p class="badge badge-danger ml-1">必須</p></br>
+      <%= f.text_field :name, class: "form-control"%>
+    </div>
+    <div class="form-group">
+      <%= f.label "ご意見・ご要望" %><p class="badge badge-danger ml-1">必須</p></br>
+      <%= f.text_area :message, class: "form-control", id: "textarea1", rows: "3" %>
+    </div>
+    <div class="submit_bottom_group d-flex justify-content-center mt-4">
+    <%= f.submit "入力内容を送信する", class: "btn submit-bottom" %>
+    </div>
+    <% end %>
+    </div>
+    </div>
+  </div>
+</div>

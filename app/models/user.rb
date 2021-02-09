@@ -3,11 +3,13 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
   attachment :profile_image
 
   has_many :play_lists, dependent: :destroy
   has_many :play_list_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :favorite_play_lists, through: :favorites, source: :play_list
   has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy # フォロー取得
   has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy # フォロワー取得
   has_many :following_user, through: :follower, source: :followed # 自分がフォローしている人
