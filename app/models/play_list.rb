@@ -18,7 +18,12 @@ class PlayList < ApplicationRecord
     validates :body
   end
 
-  def self.search_pl(search)
+  def self.search_play_lists(search)
+    return PlayList.all unless search
+    PlayList.where(['title LIKE ? OR body LIKE ?', "%#{search}%","%#{search}%"])
+  end
+  
+  def self.search_users(search)
     return PlayList.all unless search
     PlayList.where(['title LIKE ? OR body LIKE ?', "%#{search}%","%#{search}%"])
   end

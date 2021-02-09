@@ -10,13 +10,13 @@
       </ul>
       <div class="card-header">musicrowsについて</div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item"><a href="#"></a></li>
-        <li class="list-group-item"><a href="#">お問い合わせ</a></li>
+        <li class="list-group-item"><a href="/contacts/new">お問い合わせ</a></li>
       </ul>
       </div>
     </div>
     <div class="col-7 bg-white">
       <div class="setting-right p-4 ">
+        <div class="edit-title"><span class="d-flex justify-content-center font-weight-bold">プロフィール編集</span></div>
         <div class="p-3">
           <%= form_with model: @user, local: true do |f|%>
             <div><%= attachment_image_tag @user, :profile_image, size: "80x80" %></div>

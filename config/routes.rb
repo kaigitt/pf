@@ -16,7 +16,13 @@ Rails.application.routes.draw do
   resources :play_list_songs, only: [:create, :destroy]
   resources :songs, only: [:create, :destroy]
   resources :searches, only: [:index]
+  resources :contacts, only: [:new, :create]
 
+  devise_for :admins, controllers: {
+    sessions: 'admins/sessions'
+  }
   namespace :admin do
+    resources :users, only: [:index, :edit, :update]
+    resources :play_lists, only: [:index, :edit, :update]
   end
 end

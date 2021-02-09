@@ -1,4 +1,6 @@
 class PlayListsController < ApplicationController
+  before_action :authenticate_user!
+  
   def new
     @play_list = PlayList.new
     5.times { @play_list.songs.build }
@@ -34,6 +36,6 @@ class PlayListsController < ApplicationController
 
   private
   def play_list_params
-    params.require(:play_list).permit(:play_list_image, :title, :body, play_list_songs_attributes: [:tag_name], songs_attributes: [:name, :description])
+    params.require(:play_list).permit(:play_list_image, :title, :body, play_list_songs_attributes: [:tag_name], songs_attributes: [:name, :artist_name, :description])
   end
 end
