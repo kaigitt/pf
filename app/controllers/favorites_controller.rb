@@ -1,4 +1,6 @@
 class FavoritesController < ApplicationController
+  before_action :authenticate_user!
+  
   def create
     play_list = PlayList.find(params[:play_list_id])
     @favorite = Favorite.create(user_id: current_user.id, play_list_id: play_list.id)
