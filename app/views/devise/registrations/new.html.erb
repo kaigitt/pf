@@ -15,12 +15,16 @@
       <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
     </div>
 
+    <% if @sns_id.present? %>
+      <%= hidden_field_tag :sns_auth, true %>
+    <% else %>
     <div class="field form-group">
       <%= f.label "パスワード" %>
       <% if @minimum_password_length %>
       <% end %><br />
       <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
     </div>
+    <% end %>
 
     <div class="field form-group">
       <%= f.label "メールアドレス確認" %><br />
@@ -31,6 +35,8 @@
       <%= f.submit "会員登録する",class: "btn submit-bottom" %>
     </div>
   <% end %>
+
+    <%= link_to 'Twitterで登録', user_twitter_omniauth_callback_path, method: :post %>
     </div>
   </div>
 </div>
