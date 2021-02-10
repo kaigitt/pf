@@ -1,3 +1,36 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.section-title {
+  font-size: 28px;
+  color: #0b80a1;
+  font-weight: bold;
+}
+
+.slider-content{
+ display: flex;
+ justify-content: center;
+ text-align: center;
+}
+
+.slider-content:hover {
+  spacity: 0.6;
+  filter: brightness(50%);
+  transition: all .3s;
+}
+
+.slider-content-image {
+  border-radius: 50px 50px 50px 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.slider-content-title {
+  color: white;
+  font-size: 14px;
+}
+
+.section-title {
+  border-top: solid 1px white;
+}
