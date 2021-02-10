@@ -22,8 +22,9 @@
           <% if user_signed_in?  %>
           <li class="nav-item text-light nav-link mt-2">
             <%= form_with url: searches_path, method: :get, local: true do |f| %>
-              <%= f.text_field :search , class: "rounded"%>
-              <%= f.submit "検索", class: "btm " %>
+              <%= f.text_field :search , class: "rounded" %>
+              <%= f.hidden_field :target, value: "play_lists" %>
+              <%= f.submit "検索", class: "btn btn-success" %>
               <% end %>
           </li>
           <li class="nav-item text-light nav-link ">

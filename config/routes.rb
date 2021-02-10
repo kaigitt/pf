@@ -2,7 +2,10 @@ Rails.application.routes.draw do
 
   root to: 'homes#top'
   get 'homes/about' => 'homes#about'
-  devise_for :users
+  devise_for :users, controllers: {
+   omniauth_callbacks: 'users/omniauth_callbacks',
+   registrations: 'users/registrations'
+ }
   resources :users, only: [:show, :edit, :update] do
     post 'follow/:id' => 'relationships#follow', as: 'follow'
     delete 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'

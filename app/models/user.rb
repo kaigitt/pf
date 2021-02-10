@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:twitter, :facebook, :google_oauth2]
 
   attachment :profile_image
 
@@ -14,6 +14,12 @@ class User < ApplicationRecord
   has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy # フォロワー取得
   has_many :following_user, through: :follower, source: :followed # 自分がフォローしている人
   has_many :follower_user, through: :followed, source: :follower # 自分をフォローしている人
+  has_many :sns
+
+  def self.from_omniauth(auth)
+    sns = Sns.where(provider: auth.provider, uid: auth.uid).first_or_create
+    # 定義できたら「binding.pry」を記述しSNSから情報を取得できるか確認してみましょう
+  end
 
   def active_for_authentication?
     super && (self.is_deleted == false)

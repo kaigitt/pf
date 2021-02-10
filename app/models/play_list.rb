@@ -22,11 +22,6 @@ class PlayList < ApplicationRecord
     return PlayList.all unless search
     PlayList.where(['title LIKE ? OR body LIKE ?', "%#{search}%","%#{search}%"])
   end
-  
-  def self.search_users(search)
-    return PlayList.all unless search
-    PlayList.where(['title LIKE ? OR body LIKE ?', "%#{search}%","%#{search}%"])
-  end
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?

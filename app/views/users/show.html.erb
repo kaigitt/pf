@@ -41,8 +41,8 @@
         </div>
         <div class="content-area">
           <div class="content show">
-          <% @user.play_lists.each do |play_list| %>
-          <div class="row">
+            <% @user.play_lists.each do |play_list| %>
+              <div class="row">
             <div class="col-2 user-play-list"><%= link_to play_list_path(play_list) do %><%= attachment_image_tag play_list, :play_list_image, size: "100x100" %><% end %></div>
             <div class="col-10 user-play-list">
               <div class="tag"><% play_list.tags.each do |tag| %><p><%= tag.name %></p><% end %></div>
@@ -52,18 +52,18 @@
               <div class="created_at"><%= play_list.created_at.strftime("%Y-%m-%d") %></div>
             </div>
           </div>
-        <% end %>
-      </div>
-      <div class="content">
-        <% @user.favorite_play_lists.each do |play_list| %>
-          <div class="row">
+            <% end %>
+      　　</div>
+      　　<div class="content">
+            <% @user.favorite_play_lists.each do |play_list| %>
+              <div class="row">
             <div class="col-4"><%= link_to play_list_path(play_list) do %><%= attachment_image_tag play_list, :play_list_image, size: "50x50" %><% end %></div>
             <div class="col-4"><%= play_list.title %></div>
             <div class="col-4"><%= play_list.body %></div>
           </div>
-        <% end %>
-      </div>
-    </div>
+            <% end %>
+      　  </div>
+    　　</div>
       </div>
     </div>
   </div>
