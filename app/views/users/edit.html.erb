@@ -34,6 +34,8 @@
             </div>
             <%= f.submit "変更内容を保存する",class: 'btn btn-success' %>
           <% end %>
+          <%= link_to 'Twitterで登録', user_twitter_omniauth_authorize_path, method: :post  %>
+          <%= link_to 'Googleで新規登録する', user_google_oauth2_omniauth_authorize_path, method: :post %>
        </div>
       </div>
     </div>

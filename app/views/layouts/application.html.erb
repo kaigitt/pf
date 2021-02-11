@@ -60,10 +60,10 @@
             <%= link_to("Home", root_path, {class: "nav-item nav-link text-light"}) %>
           </li>
           <li class="nav-item text-light nav-link ">
-            <%= link_to("ログイン", new_user_session_path, {class: "nav-item nav-link text-light"}) %>
+            <%= link_to("ログイン", homes_before_signin_path, {class: "nav-item nav-link text-light"}) %>
           </li>
           <li class="nav-item  text-light nav-link">
-            <%= link_to("会員登録", new_user_registration_path, {class: "nav-item nav-link text-light"}) %>
+            <%= link_to("会員登録", homes_before_signup_path, {class: "nav-item nav-link text-light"}) %>
           </li>
           <% end %>
         </ul>

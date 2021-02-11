@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   root to: 'homes#top'
   get 'homes/about' => 'homes#about'
+  get 'homes/before_signin' => 'homes#before_signin'
+  get 'homes/before_signup' => 'homes#before_signup'
+
   devise_for :users, controllers: {
    omniauth_callbacks: 'users/omniauth_callbacks',
    registrations: 'users/registrations'
