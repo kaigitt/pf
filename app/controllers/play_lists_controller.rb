@@ -1,6 +1,6 @@
 class PlayListsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def new
     @play_list = PlayList.new
     5.times { @play_list.songs.build }
@@ -9,7 +9,7 @@ class PlayListsController < ApplicationController
   def create
     @play_list = PlayList.new(play_list_params)
     @play_list.user_id = current_user.id
-    tag_list = params[:play_list][:tag_name].split(nil)
+    tag_list = params[:play_list][:name].split(",")
     if @play_list.save
       @play_list.save_tag(tag_list)
       redirect_to play_list_path(@play_list)
@@ -25,6 +25,11 @@ class PlayListsController < ApplicationController
     @comment = Comment.new
   end
 
+  def tagAutocomplete
+    @tags = Tag.all.where('name LIKE ?', "%#{params[:name]}%")
+    render json: @tags.map{ |tag| {name:tag.name}}.to_json
+  end
+
   def edit
   end
 
@@ -36,6 +41,6 @@ class PlayListsController < ApplicationController
 
   private
   def play_list_params
-    params.require(:play_list).permit(:play_list_image, :title, :body, play_list_songs_attributes: [:tag_name], songs_attributes: [:name, :artist_name, :description])
+    params.require(:play_list).permit(:play_list_image, :title, :body, play_list_songs_attributes: [:name], songs_attributes: [:name, :artist_name, :description])
   end
 end
