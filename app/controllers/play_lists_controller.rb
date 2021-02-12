@@ -26,8 +26,8 @@ class PlayListsController < ApplicationController
   end
 
   def tagAutocomplete
-    @tags = Tag.all.where('name LIKE ?', "%#{params[:name]}%")
-    render json: @tags.map{ |tag| {name:tag.name}}.to_json
+    @tags = Tag.all.where('name LIKE ?', "%#{params[:term]}%")
+    render json: @tags.map{ |tag| {name: tag.name, count: tag.play_lists.count}}.to_json
   end
 
   def edit

@@ -57,7 +57,7 @@ $(document).on('turbolinks:load',function(){
 
   if($("#formTagInput_tag").length){
     $('#formTagInput_tag').data('ui-autocomplete')._renderItem = function(ul, item) {
-      return $('<li class="w-100">').data('item.autocomplete', item).append('<a class="w-100 d-flex">' + item.name + '</a>')
+      return $('<li class="w-100">').data('item.autocomplete', item).append('<a class="w-100 d-flex">' + item.name +　'  (' + item.count +')　</a>')
         .appendTo(ul);
     }
   }

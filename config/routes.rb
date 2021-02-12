@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :show, :edit, :update, :destroy]
     resources :favorites, only: [:create, :destroy]
   end
-  get '/tags/autocomplete.json', to: 'posts#tagAutocomplete'
+  get '/tags/autocomplete.json', to: 'play_lists#tagAutocomplete'
   resources :tag_maps, only: [:create, :destroy]
   resources :tags, only: [:create, :destroy]
   resources :play_list_songs, only: [:create, :destroy]
