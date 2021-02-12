@@ -16,95 +16,28 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+@import "slick-theme";
+@import "slick";
+@import "jquery-ui.min";
+@import "jquery.tagsinput.min";
 
 * {
   margin: 0;
   padding: 0;
   font-family:"Meiryo";
+  font-size: 14px;
 }
 
+
 body {
-  background-image: url("patter.jpg");
+  background-image: image-url("patter.jpg");
+}
+
+.top-container {
+  min-height: 1000px;
 }
 
 .submit-bottom {
   background-color: #063f78;
   color: white;
-}
-
-// users#show
-.user-info-detail {
-  .user-info-count {
-    font-size: 20px;
-    font-weight: bold;
-  }
-
-  .text-secondary {
-    font-size: 12px;
-  }
-}
-
-.user-play-list {
-  text-align: left;
-  .tag{
-    p {
-      margin: 0;
-      color: grey;
-      font-size: 13px;
-      box-sizing: border-box;
-    }
-  }
-  .title {
-    font-size: 18px;
-    font-weight: bold;
-  }
-  .bookmark {
-    font-size: 12px;
-  }
-  .body {
-    font-size: 14px;
-  }
-  .created_at {
-    font-size: 12px;
-    color: grey;
-  }
-}
-
-
-
-.tab-area {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  cursor: pointer;
-  width: 250px;
-  color: black;
-  .tab {
-    width: 125px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .tab:hover {
-    background-color: grey;
-  }
-
-  .tab.active {
-    background-color: grey;
-    color: #222e3e;
-    border: none;
-  }
-}
-.content-area {
-  text-align: center;
-  .content {
-    display: none;
-  }
-  .content.show {
-    margin-top: 50px;
-    display: block;
-  }
 }

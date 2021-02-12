@@ -7,6 +7,8 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
   </head>
 
   <body>
@@ -20,8 +22,9 @@
           <% if user_signed_in?  %>
           <li class="nav-item text-light nav-link mt-2">
             <%= form_with url: searches_path, method: :get, local: true do |f| %>
-              <%= f.text_field :search , class: "rounded"%>
-              <%= f.submit "検索", class: "btm " %>
+              <%= f.text_field :search , class: "rounded" %>
+              <%= f.hidden_field :target, value: "play_lists" %>
+              <%= f.submit "検索", class: "btn btn-success" %>
               <% end %>
           </li>
           <li class="nav-item text-light nav-link ">
@@ -41,23 +44,26 @@
             </li>
           <% elsif admin_signed_in? %>
           <li class="nav-item text-light nav-link ">
-            <%= link_to("ユーザ一覧", root_path, {class: "nav-item nav-link text-light"}) %>
+            <%= link_to("ユーザ一覧", admin_users_path, {class: "nav-item nav-link text-light"}) %>
           </li>
           <li class="nav-item text-light nav-link ">
-            <%= link_to("プレイリスト一覧", root_path, {class: "nav-item nav-link text-light"}) %>
+            <%= link_to("プレイリスト一覧", admin_play_lists_path, {class: "nav-item nav-link text-light"}) %>
           </li>
           <li class="nav-item text-light nav-link ">
             <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "nav-item nav-link text-light" %>
           </li>
           <% else %>
           <li class="nav-item text-light nav-link ">
+            <%= link_to("管理者ログイン", new_admin_session_path, {class: "nav-item nav-link text-danger"}) %>
+          </li>
+          <li class="nav-item text-light nav-link ">
             <%= link_to("Home", root_path, {class: "nav-item nav-link text-light"}) %>
           </li>
           <li class="nav-item text-light nav-link ">
-            <%= link_to("ログイン", new_user_session_path, {class: "nav-item nav-link text-light"}) %>
+            <%= link_to("ログイン", homes_before_signin_path, {class: "nav-item nav-link text-light"}) %>
           </li>
           <li class="nav-item  text-light nav-link">
-            <%= link_to("会員登録", new_user_registration_path, {class: "nav-item nav-link text-light"}) %>
+            <%= link_to("会員登録", homes_before_signup_path, {class: "nav-item nav-link text-light"}) %>
           </li>
           <% end %>
         </ul>

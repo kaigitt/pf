@@ -1,13 +1,43 @@
-<div class="container">
-  <% if @search.present? %>
+<div class="container search-container bg-white">
+<div class="row p-5">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" href="#">プレイリスト</a>
+    </li>
+    <li class="nav-item">
+      <%=  link_to "曲名", searches_path(search: @search, target: "song"), class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%=  link_to "タグ", searches_path(search: @search, target: "tag"), class: "nav-link" %>
+    </li>
+  </ul>
+</div>
+
+  <div><h1>"<%= @search %>"の検索結果</h1></div>
+  <% if @search.present? && @play_lists.present? %>
     <% @play_lists.each do |play_list| %>
-      <div class="row mt-5 bg-white">
+      <div class="row mt-5 d-flex justify-content-center">
         <div class="col-3"><%= attachment_image_tag play_list, :play_list_image, size: "50x50" %></div>
         <div class="col-3"><%= play_list.title %></div>
         <div class="col-3"><%= play_list.body %></div>
       </div>
     <% end %>
   <% end %>
-  
-  <%= link_to "ユーザ", searches_path, value: @search %>
+  <% if @search.present? && @songs.present? %>
+    <% @songs.each do |song| %>
+      <div class="row mt-5 d-flex justify-content-center">
+        <div class="col-3"><%= song.name %></div>
+        <div class="col-3"><%= song.artist_name %></div>
+      </div>
+    <% end %>
+  <% end %>
+  <% if @search.present? && @tags.present? %>
+    <% @tags.each do |tag| %>
+      <div class="row mt-5 d-flex justify-content-center">
+        <div class="col-3"><%= tag.name %></div>
+        <div class="col-3"><%= tag.name %></div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
 </div>

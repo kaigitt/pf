@@ -1,3 +1,78 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// users#show
+.user-info-detail {
+  .user-info-count {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .text-secondary {
+    font-size: 12px;
+  }
+}
+
+.user-play-list {
+  text-align: left;
+  .tag{
+    p {
+      margin: 0;
+      color: grey;
+      font-size: 13px;
+      box-sizing: border-box;
+    }
+  }
+  .title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .bookmark {
+    font-size: 12px;
+  }
+  .body {
+    font-size: 14px;
+  }
+  .created_at {
+    font-size: 12px;
+    color: grey;
+  }
+}
+
+.tab-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  cursor: pointer;
+  width: 250px;
+  color: black;
+  .tab {
+    width: 125px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .tab:hover {
+    background-color: grey;
+  }
+
+  .tab.active {
+    background-color: grey;
+    color: #222e3e;
+    border: none;
+  }
+}
+.content-area {
+  text-align: center;
+  .content {
+    display: none;
+  }
+  .content.show {
+    margin-top: 50px;
+    display: block;
+  }
+}

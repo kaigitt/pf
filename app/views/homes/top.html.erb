@@ -1,14 +1,29 @@
-
-<div class="container">
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<div class="container top-container">
   <div class="row">
-
+    
   </div>
-  <div class="row">
-
-  </div>
-  <div class="row">
-    <% @play_list_ranks.each do |play_list| %>
-      <%= play_list.title %>
+  <div class="section-title pt-5">new release</div>
+  <div class="row my-5">
+    <div class="col-2"><h2></h2></div>
+    <div id="slider" class="col-12">
+      <% @play_lists.each do |play_list| %>
+        <div class="slider-content">
+          <div class="slider-content-image"><%= link_to play_list_path(play_list) do %><%= attachment_image_tag play_list, :play_list_image, size: "200x200", fallback: "no-image.jpeg", class: "slider-content-image" %><% end %></div>
+          <div class="slider-content-title"><p><%= play_list.title %></p></div>
+        </div>
       <% end %>
+    </div>
+  </div>
+  <div class="section-title pt-5">pickup user</div>
+  <div class="row my-5">
+    <div id="slider2" class="col-12">
+      <% @users.each do |user| %>
+        <div class="slider-content">
+          <div class="slider-content-image"><%= link_to user_path(user) do %><%= attachment_image_tag user, :profile_image, size: "150x150", fallback: "no-user-image.png", class: "slider-content-image" %><% end %></div>
+          <div class="slider-content-title"><p><%= user.name %></p></div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

@@ -15,12 +15,16 @@
       <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
     </div>
 
+    <% if @sns_id.present? %>
+      <%= hidden_field_tag :sns_auth, true %>
+    <% else %>
     <div class="field form-group">
       <%= f.label "パスワード" %>
       <% if @minimum_password_length %>
       <% end %><br />
       <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
     </div>
+    <% end %>
 
     <div class="field form-group">
       <%= f.label "メールアドレス確認" %><br />

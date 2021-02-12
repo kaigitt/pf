@@ -19,7 +19,7 @@
         <div class="edit-title"><span class="d-flex justify-content-center font-weight-bold">プロフィール編集</span></div>
         <div class="p-3">
           <%= form_with model: @user, local: true do |f|%>
-            <div><%= attachment_image_tag @user, :profile_image, size: "80x80" %></div>
+            <div><%= attachment_image_tag @user, :profile_image, size: "80x80", fallback: "no-user-image.png" %></div>
             <div class="form-group mt-2">
             名前
             <%= f.text_field :name, class: "form-control mt-1", value: @user.name %>
