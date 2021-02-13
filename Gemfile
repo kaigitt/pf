@@ -58,7 +58,7 @@ group :test do
   gem 'chromedriver-helper'
 end
 
-gem "devise"
+gem "devise", git: "https://github.com/heartcombo/devise.git"
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'bootstrap', '~> 4.5'
