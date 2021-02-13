@@ -37,6 +37,9 @@ class PlayListsController < ApplicationController
   end
 
   def destroy
+    play_list = PlayList.find(params[:id])
+    play_list.delete
+    redirect_to user_path(play_list.user_id)
   end
 
   private
