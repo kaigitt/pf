@@ -72,4 +72,5 @@ gem 'omniauth-rails_csrf_protection'
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
+  gem 'capistrano-rails-console'
 end
