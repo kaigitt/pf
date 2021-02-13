@@ -1,15 +1,4 @@
 GIT
-  remote: https://github.com/heartcombo/devise.git
-  revision: 1bb5fcbbecfb9452e194341e030fdc1d364f6ee4
-  specs:
-    devise (4.7.3)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 4.1.0)
-      responders
-      warden (~> 1.2.3)
-
-GIT
   remote: https://github.com/manfe/refile.git
   revision: 46b4178654e60bb5846b1423acf6d0740cdecc25
   specs:
@@ -100,6 +89,12 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.8)
     crass (1.0.6)
+    devise (4.7.3)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0)
+      responders
+      warden (~> 1.2.3)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.7.6)
@@ -319,7 +314,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
-  devise!
+  devise
   dotenv-rails
   font-awesome-sass (~> 5.13)
   jbuilder (~> 2.5)
