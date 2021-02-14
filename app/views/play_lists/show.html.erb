@@ -1,26 +1,23 @@
 <div class="container bg-white">
-    <div class="col-12"><h1>プレイリスト詳細画面</h1></div>
-    <div class="row">
-      <div class="col-8"><h3><%= @play_list.title %></h3></div>
-      <div class="col-4"><%= attachment_image_tag @play_list, :play_list_image, size: "50x50" %></div>
-    </div>
-    <div class="row">
-      <div class="col-8"><h3><%= @play_list.body %></h3></div>
-      <div class="col-4"></div>
-    </div>
-    <div class="row">
-      <div class="col-8"><% @play_list_tags.each do |tag| %><span><%= tag.name %>(<%= tag.tag_maps.count%>)</span><% end %></div>
-      <div class="col-4"></div>
-    </div>
-    <div class="row">
+    <div class="row p-5 show_top">
       <div class="col-8">
-        <ul>
-        <% @play_list.songs.each do |song| %>
-          <li><%= song.name %><%= song.description %></li>
+        <div><h2><%= @play_list.title %></h2> <% @play_list.tags.each do |tag| %><span><%= tag.name %>(<%= tag.tag_maps.count%>)</span><% end %></div>
+        <div><p><%= @play_list.body %></p></div>
+        <div>
+          <ul>
+          <% @play_list.songs.each do |song| %>
+            <li><div><%= song.name %></div></li>
           <% end %>
-        </ul>
+          </ul>
+        </div>
       </div>
-      <div class="col-4"></div>
+      <div class="col-4"><%= attachment_image_tag @play_list, :play_list_image, size: "200x200", fallback: "no-image.jpg" %></div>
+      <div class="col-8-offset">
+        <% @play_list.songs.each do |song| %>
+          <div class="py-2"><h5><%= song.name %></h5><div>
+          <div class="pl-5"><%= song.description %></div>
+          <% end %>
+      </div>
     </div>
 
     <div class="favorites">
@@ -38,11 +35,10 @@
     </p>
   <% end %>
     </div>
-
     <% @comments.each do |comment|%>
       <div class="col-12 mt-5">
         <div class="row">
-          <div class="col-4"><%= attachment_image_tag comment.user, :profile_image, size: "50x50" %></div>
+          <div class="col-4"><%= attachment_image_tag comment.user, :profile_image, size: "50x50", fallback: "no-image.jpg" %></div>
           <div class="col-8"><%= comment.content %></div>
         </div>
       </div>
