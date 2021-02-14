@@ -37,7 +37,7 @@
               <a class="nav-link dropdown-toggle text-light mt-2" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">マイページ</a>
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="/users/<%= current_user.id %>">マイページ</a>
-                <a class="dropdown-item" href="/users/<%= current_user.id %>/edit">プロフィール編集</a>
+                <a class="dropdown-item" href="/mypages/profile">プロフィール編集</a>
               <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="/users/sign_out" data-method="delete">ログアウト</a>
               </div>
@@ -73,7 +73,6 @@
         </div>
       </div>
     </div>
-
     <%= yield %>
   </body>
 </html>

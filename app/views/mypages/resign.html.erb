@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-4 d-flex justify-content-center">
+      <%= render 'mypages/edit_left' %>
+    </div>
+    <div class="col-7 bg-white">
+      <div class="account-info-top text-align-center p-5">
+        <p>musicrowsを退会してもよろしいでしょうか？</br>プレイリスト、ブックマークは全て削除されてしまいます。</p>
+        <div><%= link_to "退会する", user_path(current_user), method: :delete, data: { confirm: "【確認】アカウントを削除してもよろしいですか？" } %></div>
+      </div>
+    </div>
+  </div>
+</div>

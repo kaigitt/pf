@@ -4,12 +4,12 @@ Rails.application.routes.draw do
   get 'homes/about' => 'homes#about'
   get 'homes/before_signin' => 'homes#before_signin'
   get 'homes/before_signup' => 'homes#before_signup'
-
-  devise_for :users, controllers: {
-   omniauth_callbacks: 'users/omniauth_callbacks',
-   registrations: 'users/registrations'
- }
-  resources :users, only: [:show, :edit, :update] do
+  get 'mypages/social' => 'mypages#social', as: 'social'
+  get 'mypages/profile'=> 'mypages#profile', as: 'profile'
+  get 'mypages/account'=> 'mypages#account', as: 'account'
+  get 'mypages/resign'=> 'mypages#resign', as: 'resign'
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations' }
+  resources :users, only: [:show, :update, :destroy] do
     post 'follow/:id' => 'relationships#follow', as: 'follow'
     delete 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
   end
