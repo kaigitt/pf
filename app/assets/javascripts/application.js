@@ -36,7 +36,7 @@ $(function() {
       slidesToScroll: 5, //スクロールで切り替わるスライドの数
   });
 });
-})
+});
 
 $(function(){
   let tabs = $(".tab");
