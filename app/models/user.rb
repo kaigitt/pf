@@ -24,6 +24,11 @@ class User < ApplicationRecord
    )
   end
 
+  def self.search_user_lists(search)
+    return User.all unless search
+    User.where(['name LIKE ?',"%#{search}%"])
+  end
+
   def active_for_authentication?
     super && (self.is_deleted == false)
   end
