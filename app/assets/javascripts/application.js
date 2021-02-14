@@ -39,7 +39,7 @@ $(function() {
 });
 
 $(function(){
-  let tabs = $(".tab");
+  var tabs = $(".tab");
   $(".tab").on("click", function() {
     $(".active").removeClass("active");
     $(this).addClass("active");
