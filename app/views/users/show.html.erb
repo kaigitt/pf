@@ -23,7 +23,7 @@
           <%= link_to "プロフィールを編集する", edit_user_path, class: "btn btn-outline-dark mt-3" %>
         <% else %>
           <% if current_user.following?(@user)%>
-            <%= link_to "フォロー外す", user_unfollow_path(@user), class: "btn btn-outline-dark" , method: :delete %>
+            <%= link_to "フォローを外す", user_unfollow_path(@user), class: "btn btn-outline-dark" , method: :delete %>
           <% else %>
             <%= link_to "フォローする", user_follow_path(@user), class: "btn btn-outline-dark" , method: :post %>
           <% end %>
