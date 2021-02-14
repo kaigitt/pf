@@ -14,7 +14,7 @@
       <div class="col-4"><%= attachment_image_tag @play_list, :play_list_image, size: "200x200", fallback: "no-image.jpg" %></div>
       <div class="col-8-offset">
         <% @play_list.songs.each do |song| %>
-          <div class="py-2"><h5><%= song.name %></h5><div>
+          <div class="py-2"><h5><%= song.name %> / <%= song.artist_name %></h5><div>
           <div class="pl-5"><%= song.description %></div>
           <% end %>
       </div>
