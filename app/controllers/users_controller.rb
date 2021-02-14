@@ -6,15 +6,14 @@ class UsersController < ApplicationController
     @play_lists = @user.play_lists
   end
 
-  def edit
-    @user = User.find(params[:id])
-    @contact = Contact.new
-  end
-
   def update
     user = User.find(params[:id])
     user.update(user_params)
-    redirect_to user_path
+    if request.referer&.include?('/mypages/resign')
+      redirect_to root_path
+    else
+      redirect_to profile_path
+    end
   end
 
   private
