@@ -29,7 +29,8 @@ $(function() {
       slidesToScroll: 4, //スクロールで切り替わるスライドの数
   });
 });
-
+});
+$(document).on('turbolinks:load',function(){
 $(function() {
   $('#slider2').slick({
       slidesToShow: 5, //表示するスライドの数
@@ -37,6 +38,7 @@ $(function() {
   });
 });
 });
+
 
 $(function(){
   var tabs = $(".tab");
