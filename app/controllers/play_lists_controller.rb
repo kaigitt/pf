@@ -20,7 +20,6 @@ class PlayListsController < ApplicationController
 
   def show
     @play_list = PlayList.find(params[:id])
-    @play_list_tags = @play_list.tags
     @comments = Comment.where(play_list_id: @play_list.id)
     @comment = Comment.new
   end
