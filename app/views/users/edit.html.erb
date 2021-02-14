@@ -24,6 +24,10 @@
             名前
             <%= f.text_field :name, class: "form-control mt-1", value: @user.name %>
             </div>
+            <div class="form-group mt-2">
+            年齢
+            <%= f.text_field :age, class: "form-control mt-1", value: @user.age %>
+            </div>
             <div class="form-group">
             ユーザ画像
             <%= f.attachment_field :profile_image, class: "form-control mt-1", value: @user.profile_image %>
