@@ -10,6 +10,9 @@
     <li class="nav-item">
       <%=  link_to "タグ", searches_path(search: @search, target: "tag"), class: "nav-link" %>
     </li>
+    <li class="nav-item">
+      <%=  link_to "ユーザ", searches_path(search: @search, target: "user"), class: "nav-link" %>
+    </li>
   </ul>
 </div>
 
@@ -36,6 +39,14 @@
       <div class="row mt-5 d-flex justify-content-center">
         <div class="col-3"><%= tag.name %></div>
         <div class="col-3"><%= tag.name %></div>
+      </div>
+    <% end %>
+  <% end %>
+  <% if @search.present? && @users.present? %>
+    <% @users.each do |user| %>
+      <div class="row mt-5 d-flex justify-content-center">
+        <div class="col-3"><%= link_to user_path(user) do %><%= attachment_image_tag user, :profile_image, size: "72x72", fallback: "no-user-image.png" %><% end %></div>
+        <div class="col-3"><%= user.name %></div>
       </div>
     <% end %>
   <% end %>

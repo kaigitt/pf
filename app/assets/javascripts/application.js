@@ -22,6 +22,7 @@
 
 
 /* global $*/
+$(document).on('turbolinks:load',function(){
 $(function() {
   $('#slider').slick({
       slidesToShow: 4, //表示するスライドの数
@@ -35,9 +36,19 @@ $(function() {
       slidesToScroll: 5, //スクロールで切り替わるスライドの数
   });
 });
+})
+
+$(function(){
+  let tabs = $(".tab");
+  $(".tab").on("click", function() {
+    $(".active").removeClass("active");
+    $(this).addClass("active");
+    const index = tabs.index(this);
+    $(".content").removeClass("show").eq(index).addClass("show");
+  })
+})
 
 $(document).on('turbolinks:load',function(){
-
   $('#formTagInput').tagsInput({
     'autocomplete_url': "/tags/autocomplete.json",
     'autocomplete': {
@@ -57,7 +68,7 @@ $(document).on('turbolinks:load',function(){
 
   if($("#formTagInput_tag").length){
     $('#formTagInput_tag').data('ui-autocomplete')._renderItem = function(ul, item) {
-      return $('<li class="w-100">').data('item.autocomplete', item).append('<a class="w-100 d-flex">' + item.name +　'  (' + item.count +')　</a>')
+      return $('<li class="w-100">').data('item.autocomplete', item).append('<a class="w-100 d-flex">' + item.name + '</a>')
         .appendTo(ul);
     }
   }
