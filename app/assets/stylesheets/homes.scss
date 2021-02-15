@@ -2,16 +2,72 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.top-page {
+  z-index: 1;
+}
+
+.top-image {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: url(music-top.jpg);
+  background-size: cover;
+  z-index: 1;
+}
+
+.top-text {
+  justify-content: center;
+  text-align: center;
+  padding: 350px 0;
+  color: white;
+  .top-text-musicrows {
+  font-size: 30px;
+  font-weight: bold;
+  }
+  .top-text-comment {
+
+  }
+}
+
+.search-div {
+  padding: 20px 40px;
+  position: absolute;
+  top: 910px;
+  left: 50%;
+  transform: translateX(-50%);
+  .search-input {
+    width: 300px;
+    height: 50px;
+    font-size: 14px;
+    border-radius:2px;
+    outline:0;
+    background:#eee;
+    position:relative;
+  }
+  .sbtn2{
+    height: 50px;
+    position: absolute;
+    left: 83%;
+    top: 20%;
+    background: none;
+    color: #666;
+    border: none;
+    font-size: 20px;
+  }
+}
+
 .section-title {
   font-size: 28px;
   color: #0b80a1;
   font-weight: bold;
+  padding-top: 100px;
 }
 
 .slider-content{
  display: flex;
  justify-content: center;
  text-align: center;
+ z-index: 1;
 }
 
 .slider-content:hover {
@@ -31,9 +87,15 @@
   font-size: 14px;
 }
 
-.section-title {
-  border-top: solid 1px white;
+.search-images {
+  .search-image {
+    display: flex;
+  }
 }
+
+// .section-title-withoutfirst {
+//   border-top: solid 1px white;
+// }
 
 .registration {
   display: block;
@@ -43,4 +105,20 @@
   margin-top: 15px;
   line-height: 48px;
   font-size: 14px;
+}
+
+@media screen and (max-width: 640px) {
+  .top-image {
+    background: url(music_responsive.png);
+    background-size: cover;
+    background-position: right 10% bottom 10%;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    z-index: 1;
+  }
+  .search-div {
+  top: 45%;
+  left: 50%;
+  }
 }

@@ -11,6 +11,8 @@ class HomesController < ApplicationController
    #  @play_list_ranks = PlayList.find(Favorite.group(:play_list_id).order('count(play_list_id) desc').limit(8).pluck(:play_list_id))
      @users = User.all
      @play_lists = PlayList.all
+     @todays_play_list = PlayList.find(1)
+   #  ランダむに並べ替える処理
    end
 
   def about
