@@ -1,11 +1,11 @@
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<div class=" top-content top-image">
+<div class="top-content top-image">
   <div class="top-text">
     <div class="top-text-musicrows">musicrows</div>
     <div class="top-text-comment">The internet’s source of freely-usable images.</div>
     <div class="search-div">
       <%= form_with url: searches_path, method: :get, local: true do |f| %>
-        <%= f.text_field :search , class: "search-input rounded" %>
+        <%= f.text_field :search, placeholder: "プレイリスト名、曲名など", class: "form_control search-input rounded" %>
         <%= f.hidden_field :target, value: "play_lists" %>
           <%= button_tag :type => "submit", :class =>"sbtn2" do %>
              <i class="fa fa-search"></i>
@@ -15,8 +15,54 @@
   </div>
 </div>
 <div class="middle-content top-page container">
+  <div class="section-title section-to_who pt-5">こんなときに、こんな人に</div>
+  <div class="row">
+    <div class="col-12 bg-white">
+      <div class="play_list_bodys">
+      <% @play_lists.each do |play_list| %>
+        <% if play_list.body.present? %>
+          <span><%= link_to play_list_path(play_list) do %><%= play_list.body %><% end %></span>
+        <% end %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="section-title section-todays_play_list pt-5 col-6">Todays play_list</div>
+    <div class="section-title section-todays_play_list pt-5 col-6">タグから探す</div>
+  </div>
+  <div class="row my-5 content">
+    <div class="col-6 bg-white content-left">
+      <div class="inner-content">
+       <% @songs.each do |song| %>
+       <% if song.name.present? %>
+       <% @search = song.name %>
+        <p><%= link_to searches_path(search: @search, target: "play_list") do %><%= song.name %> / <%= song.artist_name %><% end %></p>
+       <% end %>
+       <% end %>
+      </div>
+    </div>
+    <div class="col-6 bg-white content-right">
+      <div class="inner-content">
+        <% @tags.each do |tag|%>
+          <% @search = tag.name %>
+          <span><%= link_to searches_path(search: @search, target: "play_list") do %><%= tag.name %><% end %> </span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="section-title section-search-images pt-5">写真から選ぶ</div>
+  <div class="row my-5 content">
+    <div class="col-12 seacrh-images">
+      <% @play_lists.each do |play_list| %>
+        <% if play_list.play_list_image.present? %>
+          <span class="seacrh-image"><%= link_to play_list_path(play_list) do %><%= attachment_image_tag play_list, :play_list_image, size: "100x100", class: "seacrh-images" %><% end %></span>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
   <div class="section-title">new release</div>
-  <div class="row my-5 conetnt1">
+  <div class="row my-5 conetnt">
     <div class="col-2"><h2></h2></div>
     <div id="slider" class="col-12">
       <% @play_lists.each do |play_list| %>
@@ -28,7 +74,7 @@
     </div>
   </div>
   <div class="section-title recomend-play_lists pt-5">pickup user</div>
-  <div class="row my-5 content2">
+  <div class="row my-5 content">
     <div id="slider2" class="col-12">
       <% @users.each do |user| %>
         <div class="slider-content">
@@ -38,30 +84,5 @@
       <% end %>
     </div>
   </div>
-  <div class="row">
-    <div class="section-title section-todays_play_list pt-5 col-6">Todays play_list</div>
-    <div class="section-title section-todays_play_list pt-5 col-6">タグから探す</div>
-  </div>
-  <div class="row my-5 content3">
-    <div class="col-6 bg-white content-left">
-      <div class="my-5"><%= @todays_play_list.title %></div>
-      <div class="my-5"><%= @todays_play_list.body %></div>
-      <ul class="my-5"><% @todays_play_list.songs.each do |song|%><li><%= song.name %></li><% end %></ul>
-    </div>
-    <div class="col-6 content-right">
-      <div class="my-5"><%= @todays_play_list.title %></div>
-      <div class="my-5"><%= @todays_play_list.body %></div>
-      <ul class="my-5"><% @todays_play_list.songs.each do |song|%><li><%= song.name %></li><% end %></ul>
-    </div>
-  </div>
-  <div class="section-title section-search-images pt-5">写真から選ぶ</div>
-  <div class="row my-5 content3">
-    <div class="col-12 seacrh-images">
-      <% @play_lists.each do |play_list| %>
-        <% if play_list.play_list_image.present? %>
-          <span class="seacrh-image"><%= link_to play_list_path(play_list) do %><%= attachment_image_tag play_list, :play_list_image, size: "100x100", class: "seacrh-images" %><% end %></span>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
+
 </div>
