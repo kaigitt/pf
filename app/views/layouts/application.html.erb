@@ -59,14 +59,24 @@
         <% end %>
       </nav>
         <nav class="sp-nav">
+          <% if user_signed_in?  %>
           <ul>
             <li><%= link_to("Home", root_path, {class: "nav-item nav-link text-light"}) %></li>
             <li><%= link_to("About", root_path, {class: "nav-item nav-link text-light"}) %></li>
             <li><%= link_to("投稿する", new_play_list_path, {class: "nav-item nav-link text-light"}) %></li>
             <li><%= link_to("マイページ", user_path(current_user), {class: "nav-item nav-link text-light"}) %></li>
+            <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "nav-item nav-link text-light" %></li>
             <li class="close"><span>閉じる</span></li>
           </ul>
-        </nav>
+          <% else %>
+          <ul>
+            <li><%= link_to("管理者ログイン", new_admin_session_path, {class: "nav-item nav-link text-danger"}) %></li>
+            <li><%= link_to("Home", root_path, {class: "nav-item nav-link text-light"}) %></li>
+            <li><%= link_to("ログイン", homes_before_signin_path, {class: "nav-item nav-link text-light"}) %></li>
+            <li><%= link_to("会員登録", homes_before_signup_path, {class: "nav-item nav-link text-light"}) %></li>
+          </ul>
+          <% end %>
+          </nav>
       <div id="hamburger">
          <span></span>
       </div>
