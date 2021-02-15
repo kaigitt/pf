@@ -32,13 +32,13 @@
 .search-div {
   padding: 20px 40px;
   position: absolute;
-  top: 910px;
+  top: 79%;
   left: 50%;
   transform: translateX(-50%);
   .search-input {
-    width: 300px;
-    height: 50px;
-    font-size: 14px;
+    width: 500px;
+    height: 60px;
+    font-size: 20px;
     border-radius:2px;
     outline:0;
     background:#eee;
@@ -47,13 +47,18 @@
   .sbtn2{
     height: 50px;
     position: absolute;
-    left: 83%;
+    left: 88%;
     top: 20%;
     background: none;
     color: #666;
     border: none;
     font-size: 20px;
   }
+}
+
+.inner-content {
+  padding: 10px;
+  margin: 10px;
 }
 
 .section-title {
