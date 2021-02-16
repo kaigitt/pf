@@ -34,7 +34,7 @@
             <li><%= link_to("About", root_path, {class: "nav-item nav-link text-light"}) %></li>
             <li><%= link_to("投稿する", new_play_list_path, {class: "nav-item nav-link text-light"}) %></li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-light mt-2" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">マイページ</a>
+              <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">マイページ</a>
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="/users/<%= current_user.id %>">マイページ</a>
                 <a class="dropdown-item" href="/mypages/profile">プロフィール編集</a>

@@ -1,54 +1,84 @@
-<div class="container search-container bg-white">
-<div class="row p-5">
-  <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link active" href="#">プレイリスト</a>
+<div class="container search-container">
+  <div class="row search-index-top p-5 bg-white">
+    <div class="col-12 search-box">
+      <%= form_with url: searches_path, method: :get, local: true do |f| %>
+       <%= f.text_field :search, placeholder: "プレイリスト名、曲名など", class: "form_control search-input rounded" %>
+       <%= f.hidden_field :target, value: "play_lists" %>
+        <%= button_tag :type => "submit", :class =>"sbtn2" do %>
+           <i class="fa fa-search"></i>
+        <% end %>
+      <% end %>
+    </div>
+   <div class="col-12 mt-5"><h1>"<%= @search %>"の検索結果</h1></div>
+   <ul class="col-12 menu mt-4">
+    <li class="manu-item">
+      <%=  link_to "プレイリストから探す", searches_path(search: @search, target: "play_list"), class: "nav-link" %>
     </li>
-    <li class="nav-item">
-      <%=  link_to "曲名", searches_path(search: @search, target: "song"), class: "nav-link" %>
+    <li class="menu-item">
+      <%= link_to "曲名から探す", searches_path(search: @search, target: "song"), class: "nav-link" %>
     </li>
-    <li class="nav-item">
-      <%=  link_to "タグ", searches_path(search: @search, target: "tag"), class: "nav-link" %>
+    <li class="menu-item">
+      <%=  link_to "タグから探す", searches_path(search: @search, target: "tag"), class: "nav-link" %>
     </li>
-    <li class="nav-item">
-      <%=  link_to "ユーザ", searches_path(search: @search, target: "user"), class: "nav-link" %>
+    <li class="menu-item">
+      <%=  link_to "ユーザから探す", searches_path(search: @search, target: "user"), class: "nav-link" %>
+    </li>
+    <li class="menu-item">
+      <%=  link_to "アーティストから探す", searches_path(search: @search, target: "user"), class: "nav-link" %>
     </li>
   </ul>
-</div>
+  </div>
 
-  <div><h1>"<%= @search %>"の検索結果</h1></div>
+  <div class="row results bg-white">
   <% if @search.present? && @play_lists.present? %>
+  <div class="col-10">
     <% @play_lists.each do |play_list| %>
-      <div class="row mt-5 d-flex justify-content-center">
-        <div class="col-3"><%= attachment_image_tag play_list, :play_list_image, size: "50x50" %></div>
-        <div class="col-3"><%= play_list.title %></div>
-        <div class="col-3"><%= play_list.body %></div>
+      <div class="col-12 d-flex  mt-2 results_play_lists content show">
+        <div class="user-play-list mr-2"><%= link_to play_list_path(play_list) do %><%= attachment_image_tag play_list, :play_list_image, size: "100x100", fallback: "no-image.jpg" %><% end %></div>
+        <div class="user-play-list">
+          <div class="tag"><% play_list.tags.each do |tag| %><p><%= tag.name %></p><% end %></div>
+          <div class="title"><%= play_list.title %>    <%= play_list.user.name %></div>
+          <div class="bookmark"><%= play_list.favorites.count %></div>
+          <div class="body"><%= play_list.body %></div>
+          <div class="created_at"><%= play_list.created_at.strftime("%Y-%m-%d") %></div>
+        </div>
       </div>
     <% end %>
+    </div>
   <% end %>
   <% if @search.present? && @songs.present? %>
+  <div class="col-10 d-flex">
     <% @songs.each do |song| %>
-      <div class="row mt-5 d-flex justify-content-center">
-        <div class="col-3"><%= song.name %></div>
-        <div class="col-3"><%= song.artist_name %></div>
+      <div class="song  d-flex justify-content-center results_songs content">
+        <% @search = song.name %>
+        <%= link_to searches_path(search: @search, target: "play_list") do %><span class="name"><%= song.name %></span><% end %>
       </div>
     <% end %>
+    </div>
   <% end %>
   <% if @search.present? && @tags.present? %>
+    <div class="col-10">
     <% @tags.each do |tag| %>
-      <div class="row mt-5 d-flex justify-content-center">
-        <div class="col-3"><%= tag.name %></div>
-        <div class="col-3"><%= tag.name %></div>
-      </div>
+        <div class="tag col-1 results_tags content">
+        <%= link_to searches_path(search: @search, target: "play_list") do %><span class="tag_name"><%= tag.name %></span><% end %>
+        </div>
     <% end %>
+    </div>
   <% end %>
   <% if @search.present? && @users.present? %>
+  <div class="col-10">
     <% @users.each do |user| %>
-      <div class="row mt-5 d-flex justify-content-center">
-        <div class="col-3"><%= link_to user_path(user) do %><%= attachment_image_tag user, :profile_image, size: "72x72", fallback: "no-user-image.png" %><% end %></div>
-        <div class="col-3"><%= user.name %></div>
+      <div class="user results_users content">
+        <div class="image left-content"><%= link_to user_path(user) do %><%= attachment_image_tag user, :profile_image, size: "100x100", fallback: "no-user-image.png" %><% end %></div>
+        <div class="right-content">
+          <div class="name"><%= link_to user_path(user) do %><%= user.name %><% end %></div>
+          <div class="introduction"><%= link_to user_path(user) do %><%= user.introduction %><% end %></div>
+        </div>
       </div>
     <% end %>
+    </div>
   <% end %>
+</div>
+</div>
 </div>
 </div>

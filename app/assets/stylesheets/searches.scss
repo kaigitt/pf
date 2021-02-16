@@ -2,6 +2,82 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.search-container {
-  min-height: 800px;
+.search-index-top {
+  .search-box {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    .search-input {
+      width: 300px;
+      height: 40px;
+    }
+    .sbtn2 {
+      padding: 5px;
+    }
+  }
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  .menu-item:hover {
+    background-color: #016394;
+    color: white;
+    transition: 0.5;
+  }
+}
+
+.results {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 200px;
+  .content {
+    width: 100%;
+  }
+  .content:hover {
+    background-color: grey;
+    transition: 0.5s;
+  }
+  .results_play_lists {
+  }
+  .results_songs {
+    margin-left: 0;
+  }
+  .results_users {
+    display: flex;
+    width: 500px;
+    padding: 20px;
+    .image {
+      margin: auto 0;
+    }
+    .right-content {
+      padding: 10px;
+      border-radius: 50px 50px 50px 50px;
+      .name {
+        margin-top: 5px;
+        font-size: 14px;
+      }
+      .introduction {
+        margin-top: 5px;
+    }
+    }
+  }
+  .results_users:hover {
+    background-color: #0b80a7;
+    transition: 0.5s;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .search-input {
+    width: 500px;
+    height: 30px;
+    font-size: 25px;
+  }
+  button.sbtn2 {
+    padding: 16px;
+    top: 16%;
+}
+
 }

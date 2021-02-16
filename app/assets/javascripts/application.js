@@ -50,6 +50,7 @@ $(function(){
   })
 })
 
+
 $(document).on('turbolinks:load',function(){
   $('#formTagInput').tagsInput({
     'autocomplete_url': "/tags/autocomplete.json",
