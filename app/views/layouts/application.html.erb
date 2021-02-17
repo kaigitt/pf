@@ -51,6 +51,7 @@
         </ul>
         <% else %>
         <ul>
+          <li><%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, {method: :post, class: "nav-item nav-link text-primary"} %></li>
           <li><%= link_to("管理者ログイン", new_admin_session_path, {class: "nav-item nav-link text-danger"}) %></li>
           <li><%= link_to("Home", root_path, {class: "nav-item nav-link text-light"}) %></li>
           <li><%= link_to("ログイン", homes_before_signin_path, {class: "nav-item nav-link text-light"}) %></li>
