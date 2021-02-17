@@ -50,6 +50,12 @@ $(function(){
   })
 })
 
+// ヘッダー用
+window.addEventListener("scroll", function () {
+  var header = document.querySelector("header");
+  header.classList.toggle("scroll-nav", window.scrollY > 700);
+});
+
 
 $(document).on('turbolinks:load',function(){
   $('#formTagInput').tagsInput({
@@ -77,3 +83,5 @@ $(document).on('turbolinks:load',function(){
   }
 
 });
+
+
