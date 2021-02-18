@@ -17,16 +17,20 @@
   }
 }
 
-.menu {
+.tab2 {
   display: flex;
   justify-content: center;
   list-style: none;
-  .menu-item:hover {
+  .tab2:hover {
     background-color: #016394;
     color: white;
     transition: 0.5;
   }
 }
+.active2 {
+    background-color: #016394;
+    color: white;
+  }
 
 .results {
   display: flex;

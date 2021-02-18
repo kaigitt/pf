@@ -50,11 +50,22 @@ $(function(){
   })
 })
 
-// ヘッダー用
+$(function(){
+  var tabs = $(".tab2");
+  $(".tab2").on("click", function() {
+    $(".active2").removeClass("active2");
+    $(this).addClass("active2");
+  })
+})
+
+// ヘッダー用 調整必要
 window.addEventListener("scroll", function () {
   var header = document.querySelector("header");
-  header.classList.toggle("scroll-nav", window.scrollY > 700);
+  if (header.height() < window.scrollY()) {
+    header.RemoveClass("scroll-nav");
+  }
 });
+
 
 
 $(document).on('turbolinks:load',function(){
@@ -81,7 +92,4 @@ $(document).on('turbolinks:load',function(){
         .appendTo(ul);
     }
   }
-
 });
-
-

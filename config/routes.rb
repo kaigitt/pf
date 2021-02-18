@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   resources :tags, only: [:create, :destroy]
   resources :play_list_songs, only: [:create, :destroy]
   resources :songs, only: [:create, :destroy]
+
   resources :searches, only: [:index]
   resources :contacts, only: [:new, :create]
 

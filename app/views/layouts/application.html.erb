@@ -23,7 +23,7 @@
     });
     </script>
 
-    <header>
+    <header class="scroll-nav">
       <h1>
          <a href="/">musicrows</a>
       </h1>
@@ -59,7 +59,7 @@
         </ul>
         <% end %>
       </nav>
-        <nav class="sp-nav">
+      <nav class="sp-nav">
           <% if user_signed_in?  %>
           <ul>
             <li><%= link_to("Home", root_path, {class: "nav-item nav-link text-light"}) %></li>

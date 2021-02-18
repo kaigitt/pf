@@ -33,11 +33,17 @@ body {
   background-image: image-url("patter.jpg");
 }
 
-
 .container {
   padding-top: 100px;
   min-height: 1000px;
 }
+
+li {
+  list-style: none;
+}
+
+
+
 
 .submit-bottom {
   background-color: #063f78;
@@ -115,7 +121,6 @@ body {
     display: block;
   }
 }
-
 
 // ヘッダー用
 header {

@@ -16,29 +16,9 @@
         <% @play_list.songs.each do |song| %>
           <div class="py-2"><h5><%= song.name %> / <%= song.artist_name %></h5><div>
           <div class="pl-5"><%= song.description %></div>
-          <% @track = RSpotify::Track.search(song.name).first %>
-          <%= link_to '視聴する', spotify_path(song_name: song.name), remote: true, class: "btn btn-lg, btn-primary" %>
           <% end %>
       </div>
     </div>
-
-  <div class="modal" id="SpotifyModal" tabindex="-1">
-	<div class="modal-dialog modal-lg">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
-			</div>
-			<div class="modal-body">
-				<iframe class="iframe-song" src="<%= @track.preview_url %>">
-				<img src="<%= @track.album.images.last["url"] %>">
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-				<button type="button" id="btn1" class="btn btn-primary">ボタン1</button>
-			</div>
-		</div>
-	</div>
-</div>
 
     <div class="favorites">
       <% if @play_list.favorited_by?(current_user) %>
