@@ -10,8 +10,8 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
  *= require_self
+ *= require_tree .
  */
 @import "bootstrap";
 @import 'font-awesome-sprockets';
@@ -33,11 +33,22 @@ body {
   background-image: image-url("patter.jpg");
 }
 
-
 .container {
-  padding-top: 50px;
+  padding-top: 100px;
   min-height: 1000px;
 }
+
+li {
+  list-style: none;
+}
+
+.link {
+  text-decoration: none;
+}
+
+
+
+
 
 .submit-bottom {
   background-color: #063f78;
@@ -95,13 +106,11 @@ body {
     justify-content: center;
     align-items: center;
   }
-
   .tab.active {
     background-color: grey;
     color: #222e3e;
     border: none;
   }
-
   .tab:hover {
     background-color: grey;
   }
@@ -120,20 +129,22 @@ body {
 
 // ヘッダー用
 header {
-   padding: 30px 4% 10px;
-   position: fixed;
-   top: 0;
-   left: 10%;
-   width: 80%;
+    padding: 30px 4%;
+    position: fixed;
+    top: 0;
+    left: 4%;
+    width: 93%;
    display: flex;
    justify-content: center;
    align-items: center;
    margin: 0 auto;
    z-index: 3;
-}
-h1 {
+opacity: 0.8;
+   background-image: image-url('patter.jpg');
+   h1 {
    margin: 0; padding: 0;
-   font-size: 20px;
+   font-size: 25px;
+   font-weight: bold;
 }
 a {
    text-decoration: none;
@@ -156,12 +167,16 @@ h2 {
    font-weight: normal;
    color: #fff;
 }
+}
 
 .sp-nav {
    display: none;
 }
 
 @media screen and (max-width: 640px) {
+    header {
+      width: 90%;
+    }
    .pc-nav {
       display: none;
    }
@@ -230,7 +245,7 @@ h2 {
       padding: 0;
    }
    .sp-nav li span {
-      font-size: 15px;
+      font-size: 25px;
       color: #fff;
    }
    .sp-nav li a, .sp-nav li span {

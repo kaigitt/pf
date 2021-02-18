@@ -51,8 +51,8 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    addressable (2.7.0)
-      public_suffix (>= 2.0.2, < 5.0)
+    addressable (2.5.2)
+      public_suffix (>= 2.0.2, < 4.0)
     airbrussh (1.4.0)
       sshkit (>= 1.6.1, != 1.7.0)
     archive-zip (0.12.0)
@@ -124,7 +124,6 @@ GEM
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     hashie (4.1.0)
-    http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (1.8.9)
@@ -201,7 +200,7 @@ GEM
       rack
     orm_adapter (0.5.0)
     popper_js (1.16.0)
-    public_suffix (4.0.6)
+    public_suffix (3.1.1)
     puma (3.12.6)
     racc (1.5.2)
     rack (2.2.3)
@@ -244,11 +243,14 @@ GEM
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
-    rest-client (2.1.0)
-      http-accept (>= 1.7.0, < 2.0)
+    rest-client (2.0.2)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    rspotify (2.10.1)
+      addressable (~> 2.5.2)
+      omniauth-oauth2 (>= 1.6)
+      rest-client (~> 2.0.2)
     ruby2_keywords (0.0.4)
     ruby_dep (1.5.0)
     rubyzip (2.3.0)
@@ -348,6 +350,7 @@ DEPENDENCIES
   rails (~> 5.2.4)
   refile!
   refile-mini_magick
+  rspotify
   sass-rails (~> 5.0)
   selenium-webdriver
   spring

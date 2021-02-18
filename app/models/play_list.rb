@@ -18,6 +18,26 @@ class PlayList < ApplicationRecord
     validates :body
   end
 
+  def self.search_song_lists(search)
+    return PlayList.all unless search
+    songs = Song.where([' name LIKE ?',"%#{search}%"])
+    songs.each { |song|
+      @play_lists = []
+      @play_lists << song.play_list.id
+    }
+    byebug
+  end
+
+  def self.search_tag_lists(search)
+    return PlayList.all unless search
+    songs = Song.where([' name LIKE ?',"%#{search}%"])
+    songs.each { |song|
+      play_lists = []
+      play_lists << songs.play_lists.id
+    }
+    play_lists
+  end
+
   def self.search_play_lists(search)
     return PlayList.all unless search
     PlayList.where(['title LIKE ? OR body LIKE ?', "%#{search}%","%#{search}%"])

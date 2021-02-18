@@ -1,0 +1,9 @@
+<% users.each do |user| %>
+  <div class="user results_users content">
+    <div class="image left-content"><%= link_to user_path(user) do %><%= attachment_image_tag user, :profile_image, size: "100x100", fallback: "no-user-image.png" %><% end %></div>
+    <div class="right-content">
+      <div class="name"><%= link_to user_path(user) do %><%= user.name %><% end %></div>
+      <div class="introduction"><%= link_to user_path(user) do %><%= user.introduction %><% end %></div>
+    </div>
+  </div>
+<% end %>

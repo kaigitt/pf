@@ -1,0 +1,15 @@
+<div class="row results bg-white" id="search-index">
+
+
+  <% if target == "song" && play_lists.present? %>
+    <%= render "play_list_index", play_lists: play_lists %>
+  <% end %>
+  <% if target == "tag" && play_lists.present? %>
+      <%= render "play_list_index", play_lists: play_lists %>
+  <% end %>
+  <% if target != "tag" && target != "song" && play_lists.present? %>
+    <%= render "play_list_index", play_lists: play_lists %>
+  <% end %>
+  <% if users.present? %>
+    <%= render "user_index", users: users %>
+  <% end %>

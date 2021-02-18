@@ -1,54 +1,38 @@
-<div class="container search-container bg-white">
-<div class="row p-5">
-  <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link active" href="#">プレイリスト</a>
-    </li>
-    <li class="nav-item">
-      <%=  link_to "曲名", searches_path(search: @search, target: "song"), class: "nav-link" %>
-    </li>
-    <li class="nav-item">
-      <%=  link_to "タグ", searches_path(search: @search, target: "tag"), class: "nav-link" %>
-    </li>
-    <li class="nav-item">
-      <%=  link_to "ユーザ", searches_path(search: @search, target: "user"), class: "nav-link" %>
-    </li>
-  </ul>
+<div class="container search-container">
+  <div class="row search-index-top p-5 bg-white">
+    <div class="col-12 search-box">
+      <%= form_with url: searches_path, method: :get, local: true do |f| %>
+       <%= f.text_field :search, value: @search, placeholder: "プレイリスト名、曲名など", class: "form_control search-input rounded" %>
+       <%= f.hidden_field :target, value: "play_lists" %>
+        <%= button_tag :type => "submit", :class =>"sbtn2" do %>
+           <i class="fa fa-search"></i>
+        <% end %>
+      <% end %>
+    </div>
+   <div class="col-12 mt-5"><h1>"<%= @search %>"の検索結果</h1></div>
+   <div class="col-12 mt-4 tab-wrapper d-flex justify-content-center">
+    <div class="tab2 active2">
+      <%=  link_to "プレイリストから探す", searches_path(search: @search, target: "play_list"), remote: true, class: "tab2" %>
+    </div>
+    <div class="tab2">
+      <%= link_to "曲名から探す", searches_path(search: @search, target: "song"), remote: true, class: "tab2 link" %>
+    </div>
+    <div class="tab2">
+      <%=  link_to "タグから探す", searches_path(search: @search, target: "tag"), remote: true, class: "tab2 link" %>
+    </div>
+    <div class="tab2">
+      <%=  link_to "ユーザから探す", searches_path(search: @search, target: "user"), remote: true, class: "tab2 link" %>
+    </div>
+    <div class="tab2">
+      <%=  link_to "アーティストから探す", searches_path(search: @search, target: "user"), remote: true, class: "tab2 linkta" %>
+    </div>
+  </div>
+  </div>
+  <div class="row results bg-white">
+    <div class="search-wrapper col-10" id="search-index">
+      <%= render "search_index", play_lists: @play_lists, target: @target, users: @users %>
+    </div>
+  </div>
 </div>
-
-  <div><h1>"<%= @search %>"の検索結果</h1></div>
-  <% if @search.present? && @play_lists.present? %>
-    <% @play_lists.each do |play_list| %>
-      <div class="row mt-5 d-flex justify-content-center">
-        <div class="col-3"><%= attachment_image_tag play_list, :play_list_image, size: "50x50" %></div>
-        <div class="col-3"><%= play_list.title %></div>
-        <div class="col-3"><%= play_list.body %></div>
-      </div>
-    <% end %>
-  <% end %>
-  <% if @search.present? && @songs.present? %>
-    <% @songs.each do |song| %>
-      <div class="row mt-5 d-flex justify-content-center">
-        <div class="col-3"><%= song.name %></div>
-        <div class="col-3"><%= song.artist_name %></div>
-      </div>
-    <% end %>
-  <% end %>
-  <% if @search.present? && @tags.present? %>
-    <% @tags.each do |tag| %>
-      <div class="row mt-5 d-flex justify-content-center">
-        <div class="col-3"><%= tag.name %></div>
-        <div class="col-3"><%= tag.name %></div>
-      </div>
-    <% end %>
-  <% end %>
-  <% if @search.present? && @users.present? %>
-    <% @users.each do |user| %>
-      <div class="row mt-5 d-flex justify-content-center">
-        <div class="col-3"><%= link_to user_path(user) do %><%= attachment_image_tag user, :profile_image, size: "72x72", fallback: "no-user-image.png" %><% end %></div>
-        <div class="col-3"><%= user.name %></div>
-      </div>
-    <% end %>
-  <% end %>
 </div>
 </div>

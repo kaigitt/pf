@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get 'mypages/account'=> 'mypages#account', as: 'account'
   get 'mypages/resign'=> 'mypages#resign', as: 'resign'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations' }
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+  end
   resources :users, only: [:show, :update, :destroy] do
     post 'follow/:id' => 'relationships#follow', as: 'follow'
     delete 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
@@ -22,6 +25,7 @@ Rails.application.routes.draw do
   resources :tags, only: [:create, :destroy]
   resources :play_list_songs, only: [:create, :destroy]
   resources :songs, only: [:create, :destroy]
+
   resources :searches, only: [:index]
   resources :contacts, only: [:new, :create]
 
