@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row">
-    <div class="col-4 my-page-left border mr-2 bg-white">
+  <div class="my-page-wrapper">
+    <div class="my-page-left border bg-white">
       <div class="user-info mt-4">
         <div class="col-4-offset d-flex justify-content-center"><%= attachment_image_tag @user, :profile_image, size: "72x72", fallback: "no-user-image.png" %></div>
         <div class="col-4-offset d-flex justify-content-center mt-2"><%= @user.name %><% if @user.age.present?%> (<%= @user.age %>)<% end %></div>
@@ -30,7 +30,7 @@
         <% end %>
       </div>
     </div>
-    <div class="col-7 my-page-right  bg-white">
+    <div class="my-page-right  bg-white">
       <div class="my-page-right-top m-3">
       </div>
       <div class="my-page-right-bottom">

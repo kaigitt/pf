@@ -3,3 +3,29 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // users#show
+
+.my-page-wrapper {
+  display: flex;
+  justify-content: center;
+  .my-page-left {
+    width: 30%;
+  }
+  .my-page-right {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .my-page-wrapper {
+  display: block;
+  justify-content: center;
+  text-align: center;
+    .my-page-left {
+    width: 100%;
+  }
+  .my-page-right {
+    width: 100%;
+  }
+}
+}
+

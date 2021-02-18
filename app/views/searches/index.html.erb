@@ -10,27 +10,28 @@
       <% end %>
     </div>
    <div class="col-12 mt-5"><h1>"<%= @search %>"の検索結果</h1></div>
-   <div class="col-12 mt-4">
-    <li class="tab2 active2 col-2">
-      <%=  link_to "プレイリストから探す", searches_path(search: @search, target: "play_list"), remote: true, class: "tab2 nav-link" %>
-    </li>
-    <li class="tab2 col-2">
-      <%= link_to "曲名から探す", searches_path(search: @search, target: "song"), remote: true, class: "tab2 nav-link" %>
-    </li>
-    <li class="tab2 col-2">
-      <%=  link_to "タグから探す", searches_path(search: @search, target: "tag"), remote: true, class: "tab2 nav-link" %>
-    </li>
-    <li class="tab2 col-2">
-      <%=  link_to "ユーザから探す", searches_path(search: @search, target: "user"), remote: true, class: "tab2 nav-link" %>
-    </li>
-    <li class="tab2 col-2">
-      <%=  link_to "アーティストから探す", searches_path(search: @search, target: "user"), remote: true, class: "tab2 nav-link" %>
-    </li>
+   <div class="col-12 mt-4 tab-wrapper d-flex justify-content-center">
+    <div class="tab2 active2">
+      <%=  link_to "プレイリストから探す", searches_path(search: @search, target: "play_list"), remote: true, class: "tab2" %>
+    </div>
+    <div class="tab2">
+      <%= link_to "曲名から探す", searches_path(search: @search, target: "song"), remote: true, class: "tab2 link" %>
+    </div>
+    <div class="tab2">
+      <%=  link_to "タグから探す", searches_path(search: @search, target: "tag"), remote: true, class: "tab2 link" %>
+    </div>
+    <div class="tab2">
+      <%=  link_to "ユーザから探す", searches_path(search: @search, target: "user"), remote: true, class: "tab2 link" %>
+    </div>
+    <div class="tab2">
+      <%=  link_to "アーティストから探す", searches_path(search: @search, target: "user"), remote: true, class: "tab2 linkta" %>
+    </div>
   </div>
   </div>
-
-  <div class="row results bg-white" id="search-index">
-    <%= render "search_index", play_lists: @play_lists, target: @target, users: @users %>
+  <div class="row results bg-white">
+    <div class="search-wrapper col-10" id="search-index">
+      <%= render "search_index", play_lists: @play_lists, target: @target, users: @users %>
+    </div>
   </div>
 </div>
 </div>

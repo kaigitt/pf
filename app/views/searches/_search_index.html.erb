@@ -2,24 +2,14 @@
 
 
   <% if target == "song" && play_lists.present? %>
-    <div class="col-10">
     <%= render "play_list_index", play_lists: play_lists %>
-    </div>
   <% end %>
   <% if target == "tag" && play_lists.present? %>
-    <div class="col-10">
       <%= render "play_list_index", play_lists: play_lists %>
-    </div>
   <% end %>
-
   <% if target != "tag" && target != "song" && play_lists.present? %>
-  <div class="col-10">
     <%= render "play_list_index", play_lists: play_lists %>
-  </div>
   <% end %>
-
   <% if users.present? %>
-  <div class="col-10">
     <%= render "user_index", users: users %>
-  </div>
   <% end %>
