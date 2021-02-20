@@ -18,7 +18,7 @@
          <div class="col-4 d-flex justify-content-center text-secondary">フォロワー</div>
         </div>
       </div>
-      <div class="user-info-edit d-flex justify-content-center">
+      <div class="user-info-edit d-flex justify-content-center pb-3">
         <% if current_user.id == @user.id %>
           <%= link_to "プロフィールを編集する", profile_path, class: "btn btn-outline-dark mt-3" %>
         <% else %>
@@ -50,7 +50,10 @@
                   <div class="body"><%= play_list.body %></div>
                   <div class="created_at"><%= play_list.created_at.strftime("%Y-%m-%d") %></div>
                 </div>
-                <div class="col-2"><% if @user == current_user %><%= link_to "削除", play_list_path(play_list), method: :delete %><% end %></div>
+                <div class="col-2">
+                  <% if @user == current_user %><%= link_to "削除", play_list_path(play_list), method: :delete %><% end %>
+                  <% if @user == current_user %><%= link_to "編集", edit_play_list_path(play_list) %><% end %>
+                </div>
               </div>
             <% end %>
       　　</div>

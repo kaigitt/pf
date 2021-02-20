@@ -39,7 +39,6 @@ $(function() {
 });
 });
 
-
 $(function(){
   var tabs = $(".tab");
   $(".tab").on("click", function() {
@@ -48,7 +47,7 @@ $(function(){
     const index = tabs.index(this);
     $(".content").removeClass("show").eq(index).addClass("show");
   })
-})
+});
 
 $(function(){
   var tabs = $(".tab2");
@@ -56,7 +55,7 @@ $(function(){
     $(".active2").removeClass("active2");
     $(this).addClass("active2");
   })
-})
+});
 
 // ヘッダー用 調整必要
 window.addEventListener("scroll", function () {
@@ -65,7 +64,6 @@ window.addEventListener("scroll", function () {
     header.RemoveClass("scroll-nav");
   }
 });
-
 
 
 $(document).on('turbolinks:load',function(){

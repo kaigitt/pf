@@ -1,9 +1,33 @@
-<div class="container bg-white">
-    <% @play_lists.each do |play_list| %>
-      <div class="row mt-5 bg-white">
-        <div class="col-3"><%= attachment_image_tag play_list, :play_list_image, size: "50x50" %></div>
-        <div class="col-3"><%= play_list.title %></div>
-        <div class="col-3"><%= play_list.body %></div>
-      </div>
-    <% end %>
+<div class="container">
+  <div class="row bg-white">
+    <div class="col-12">
+     <table class="table table-hover">
+  　　　<thead>
+    　<tr>
+        <th scope="col">ID</th>
+        <th scope="col"></th>
+        <th scope="col">プレイリスト名</th>
+        <th scope="col">プレイリスト説明</th>
+        <th scope="col"></th>
+   　  </tr>
+      </thead>
+  　　<tbody>
+  　　  <% @play_lists.each do |play_list| %>
+        <tr>
+          <th scope="row"><%= play_list.id %></th>
+          <td><%= attachment_image_tag play_list, :play_list_image, size: "50x50", fallback: "no-image.jpg"  %></td>
+          <td><%= link_to admin_play_list_path(play_list.id) do %><%= play_list.title %><% end %></td>
+          <td><%= play_list.body %></td>
+          <td>
+            <td>
+              <%= link_to "削除", admin_play_list_path(play_list), method: :delete, class: "btn btn-danger" %>
+           </td>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+　　　</table>
+    </div>
+  </div>
+  </div>
 </div>

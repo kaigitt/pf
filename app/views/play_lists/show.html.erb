@@ -1,58 +1,103 @@
 <div class="container">
-    <div class="row p-5 show_top bg-white">
-      <div class="col-8">
-        <div><h2><%= @play_list.title %></h2> <% @play_list.tags.each do |tag| %><span><%= tag.name %>(<%= tag.tag_maps.count%>)</span><% end %></div>
-        <div><p><%= @play_list.body %></p></div>
-        <div>
+  <div class="row d-flex justify-content-center">
+  <div class="col-8 bg-white mr-4 p-5">
+    <div class="show_top row">
+      <div class="show_top_left col-8">
+        <div class="name_created_at">
+          <h4 class="user_name"><%= @play_list.user.name %></h4>
+          <p class="created_at"><%= @play_list.created_at.strftime("%Y-%m-%d") %></p>
+        </div>
+        <h2 class="play_list_title"><%= @play_list.title %></h2>
+        <div class="play_list_tags">
+          <% @play_list.tags.each do |tag| %><a href="#" class="badge badge-light"><%= tag.name %>(<%= tag.tag_maps.count%>)</a><% end %>
+        </div>
+        <div class="play_list_body pt-2"><p><%= @play_list.body %></p></div>
+        <div class="song_list">
           <ul>
           <% @play_list.songs.each do |song| %>
-            <li><div><%= song.name %></div></li>
+            <li class="song"><%= song.name %> / <%= song.artist_name %></li>
           <% end %>
           </ul>
         </div>
       </div>
-      <div class="col-4"><%= attachment_image_tag @play_list, :play_list_image, size: "200x200", fallback: "no-image.jpg" %></div>
-      <div class="col-8-offset">
-        <% @play_list.songs.each do |song| %>
-          <div class="py-2"><h5><%= song.name %> / <%= song.artist_name %></h5><div>
-          <div class="pl-5"><%= song.description %></div>
-          <% end %>
-      </div>
-    </div>
-
-    <div class="favorites">
-      <% if @play_list.favorited_by?(current_user) %>
-    <p>
-      <%= link_to play_list_favorite_path(@play_list), method: :delete do %>
-        ♥<%= @play_list.favorites.count %> いいね
-      <% end %>
-    </p>
-    <% else %>
-    <p>
-      <%= link_to play_list_favorites_path(@play_list), method: :post do %>
-        ♡<%= @play_list.favorites.count %> いいね
-      <% end %>
-    </p>
-  <% end %>
-    </div>
-    <% @comments.each do |comment|%>
-      <div class="col-12 mt-5">
-        <div class="row">
-          <div class="col-4"><%= attachment_image_tag comment.user, :profile_image, size: "50x50", fallback: "no-image.jpg" %></div>
-          <div class="col-8"><%= comment.content %></div>
-        </div>
+      <div class="show_top_right play_list_image col-4"><%= attachment_image_tag @play_list, :play_list_image, size: "200x200", fallback: "no-image.jpg" %></div>
+  　</div>
+    <div class="show_middle bg-white">
+    <% @play_list.songs.each do |song| %>
+      <div class="play_list_content">
+        <h5 class="song_name_artist"><%= song.name %> / <%= song.artist_name %></h5>
+        <p class="pl-5"><%= song.description %></p>
       </div>
     <% end %>
-
-    <div class="col-12">
-    <table>
+    </div>
+    <div class="show_bottom bg-white">
+      <div class="favorites-field">
+    <% if @play_list.favorited_by?(current_user) %>
+      <p><%= link_to play_list_favorite_path(@play_list), method: :delete do %>♥<%= @play_list.favorites.count %> いいね<% end %></p>
+    <% else %>
+      <p><%= link_to play_list_favorites_path(@play_list), method: :post do %>♡<%= @play_list.favorites.count %> いいね<% end %></p>
+    <% end %>
+    </div>
+      <div class="comment-field">
+        <h6>コメント</h6>
+      <% @comments.each do |comment|%>
+      <div class="comment-content d-flex">
+        <div class="comment-left"><%= attachment_image_tag comment.user, :profile_image, size: "50x50", fallback: "no-image.jpg" %></div>
+        <div class="comment-right">
+          <div class="top"><%= comment.content %></div>
+          <div class="bottom"><p class="bottom"><%= comment.user.name%>  <%= comment.created_at.strftime("%Y-%m-%d") %></p></div>
+        </div>
+      </div>
+      <% end %>
+    <div class="comment-submit-field">
+     <table>
       <tbody>
         コメント欄
         <tr>
           <%= form_with model:[@play_list, @comment], local: true do |f| %>
-          <td><%= f.text_area :content, size: "50x5" %><%= f.submit "コメント" %></td>
+          <td><%= f.text_area :content, size: "50x2" %><%= f.submit "コメント" %></td>
           <% end %>
         </tr>
       </tbody>
     </table>
+    </div>
+    </div>
+    </div>
+  </div>
+
+
+  <div class="col-3 show_right right-content mb-3">
+    <div class="play_list_include_same_song recommend">
+      <div class="card bg-white">
+        <div class="title border p-2">「<%= @play_list.title %>」と同じ曲を含むプレイリスト</div>
+        <ul class="content">
+          <% @play_lists.each do |play_list| %>
+          <li class="each-content d-flex p-2">
+             <div class="image"><%= attachment_image_tag play_list, :play_list_image, size: "50x50", fallback: "no-image.jpg" %></div>
+             <div><p class="right"><%= play_list.title %></p></div>
+           </li>
+           <% end %>
+           </ul>
+      </div>
+
+    </div>
+    <div class="play_list_include_same_tag recommend mb-3">
+      <div class="card bg-white">
+        <div class="title border p-2">「<%= @play_list.tags.first.name %>」の人気プレイリスト</div>
+        <ul class="content">
+          <% @play_lists.each do |play_list| %>
+          <li class="each-content d-flex p-2">
+             <div class="image"><%= attachment_image_tag play_list, :play_list_image, size: "50x50", fallback: "no-image.jpg" %></div>
+             <div class="right"><p><%= play_list.title %></p></div>
+           </li>
+           <% end %>
+           </ul>
+      </div>
+    </div>
+  </div>
+  </div>
 </div>
+
+
+
+

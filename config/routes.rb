@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   }
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update]
-    resources :play_lists, only: [:index, :edit, :update]
+    resources :play_lists, only: [:index, :edit, :update, :destroy]
     put "/users/:id/hide" => "users#hide", as: 'users_hide'
     put "/users/:id/open" => "users#open", as: 'users_open'
   end

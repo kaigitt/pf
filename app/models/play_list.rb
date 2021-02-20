@@ -13,6 +13,8 @@ class PlayList < ApplicationRecord
 
   attachment :play_list_image
 
+  validates :songs, associated: true
+
   with_options presence: true do
     validates :title
     validates :body
