@@ -1,16 +1,16 @@
 <div class="container">
-  <div class="row d-flex justify-content-center">
+  <div class="row d-flex before_signup justify-content-center">
     <div class="col-8 p-5 rounded bg-white">
     <div class="border-bottom my-3 pb-3"><h1 class="d-flex justify-content-center">新規登録</h1></div>
-    <div class="row d-flex justify-content-center">
+    <div class="row btns">
       <div class="registration email mt-4">
-        <%= link_to 'メールアドレスで新規登録', new_user_registration_path, class: "btn btn-email btn-success" %>
+        <div class="btn-email"><%= link_to 'メールアドレスで新規登録', new_user_registration_path, class: "btn" %></div>
       </div>
       <div class="registration twitter mt-4">
-        <%= link_to 'Twitterで新規登録', user_twitter_omniauth_authorize_path, method: :post, class: "btn btn-success" %>
+        <div class="btn-twitter"><i class="fab fa-twitter"></i><%= link_to 'Twitterで新規登録', user_twitter_omniauth_authorize_path, method: :post, class: "btn" %></div>
       </div>
       <div class="registration google mt-4">
-        <%= link_to 'Googleで新規登録', user_google_oauth2_omniauth_authorize_path, method: :post, class: "btn btn-google btn-success" %>
+        <div class="btn-google"><i class="fab fa-google"></i><%= link_to 'Googleで新規登録', user_google_oauth2_omniauth_authorize_path, method: :post, class: "btn" %></div>
       </div>
     </div>
   </div>
