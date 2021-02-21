@@ -66,19 +66,20 @@
 }
 
 
+.top-image {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url(music-top.jpg);
+  background-size: cover;
+  z-index: 1;
+}
+
 .top-content {
   .top-page {
   z-index: 1;
 }
 
-.top-image {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  background: url(music-top.jpg);
-  background-size: cover;
-  z-index: 1;
-}
 
 .top-text {
   justify-content: center;
