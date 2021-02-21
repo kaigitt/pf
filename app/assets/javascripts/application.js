@@ -30,6 +30,7 @@ $(function() {
   });
 });
 });
+
 $(document).on('turbolinks:load',function(){
 $(function() {
   $('#slider2').slick({
@@ -37,6 +38,18 @@ $(function() {
       slidesToScroll: 5, //スクロールで切り替わるスライドの数
   });
 });
+});
+$(document).on('turbolinks:load',function() {
+  if (location.pathname == "/" ){
+  $(window).scroll(function() {
+  console.log(location.pathname)
+    if ($(window).scrollTop() > 600) {
+      $('.main_h').removeClass('not_show');
+    }
+  });
+  } else {
+    $('.main_h').removeClass('not_show');
+  }
 });
 
 
@@ -48,7 +61,7 @@ $(function(){
     const index = tabs.index(this);
     $(".content").removeClass("show").eq(index).addClass("show");
   })
-})
+});
 
 $(function(){
   var tabs = $(".tab2");
@@ -56,19 +69,10 @@ $(function(){
     $(".active2").removeClass("active2");
     $(this).addClass("active2");
   })
-})
-
-// ヘッダー用 調整必要
-window.addEventListener("scroll", function () {
-  var header = document.querySelector("header");
-  if (header.height() < window.scrollY()) {
-    header.RemoveClass("scroll-nav");
-  }
 });
 
-
-
 $(document).on('turbolinks:load',function(){
+  if($("#formTagInput").length){
   $('#formTagInput').tagsInput({
     'autocomplete_url': "/tags/autocomplete.json",
     'autocomplete': {
@@ -85,7 +89,7 @@ $(document).on('turbolinks:load',function(){
     'width': '100%',
     'defaultText': ''
   })
-
+  }
   if($("#formTagInput_tag").length){
     $('#formTagInput_tag').data('ui-autocomplete')._renderItem = function(ul, item) {
       return $('<li class="w-100">').data('item.autocomplete', item).append('<a class="w-100 d-flex">' + item.name + '</a>')
@@ -93,3 +97,5 @@ $(document).on('turbolinks:load',function(){
     }
   }
 });
+
+

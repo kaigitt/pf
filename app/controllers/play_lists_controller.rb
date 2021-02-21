@@ -17,12 +17,18 @@ class PlayListsController < ApplicationController
       @play_list.save_tag(tag_list)
       redirect_to play_list_path(@play_list)
     else
-      redirect_back(fallback_location: root_path)
+      render "play_lists/new"
     end
   end
 
   def show
     @play_list = PlayList.find(params[:id])
+    @play_lists = PlayList.last(5)
+    # like_songs = @play_list.songs.map { |song| "%#{song}%" }
+    # @play_list_include_same_song = PlayList.joins(:songs).where(name: like_songs )
+    # like_tags = @play_list.tags.map { |tag| "%#{tag}%" }
+    # @play_list_include_same_tag = PlayList.joins(:tags).where(name: like_tags )
+    # @play_list_include_same_tag_new
     @comments = Comment.where(play_list_id: @play_list.id)
     @comment = Comment.new
   end

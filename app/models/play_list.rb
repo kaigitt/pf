@@ -8,16 +8,49 @@ class PlayList < ApplicationRecord
   has_many :songs, through: :play_list_songs
   has_many :tag_maps, dependent: :destroy
   has_many :tags, through: :tag_maps
+  has_many :notifications, dependent: :destroy
 
   accepts_nested_attributes_for :songs, :play_list_songs
 
   attachment :play_list_image
+
+  validates :songs, associated: true
 
   with_options presence: true do
     validates :title
     validates :body
   end
 
+  def create_notification_by(current_user)
+    notification = current_user.active_notifications.new(
+      play_list_id: id,
+      visited_id: user_id,
+      action: "like"
+      )
+      notification.save if notification.valid?
+  end
+
+  def create_notification_comment!(current_user, comment_id)
+    # 自分以外にコメントしている人を全て取得
+    temp_ids = Comment.select(:user_id).where(play_list_id: id).where.not(user_id: current_user.id).distinct
+    temp_ids.each { |temp_id| save_notification_comment!(current_user, comment_id, temp_id['user_id']) }
+    save_notification_comment!(current_user, comment_id, user_id) if temp_ids.blank?
+  end
+
+  def save_notification_comment!(current_user, comment_id, visited_id)
+    notification = current_user.active_notifications.new(
+      play_list_id: id,
+      comment_id: comment_id,
+      visited_id: visited_id,
+      action: 'comment'
+      )
+    if notification.visiter_id == notification.visited_id
+      notification.checked = true
+    end
+    notification.save if notification.valid?
+  end
+
+  # 検索用メソッド
   def self.search_song_lists(search)
     return PlayList.all unless search
     songs = Song.where([' name LIKE ?',"%#{search}%"])
@@ -25,7 +58,6 @@ class PlayList < ApplicationRecord
       @play_lists = []
       @play_lists << song.play_list.id
     }
-    byebug
   end
 
   def self.search_tag_lists(search)

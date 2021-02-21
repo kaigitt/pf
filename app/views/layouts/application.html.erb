@@ -4,12 +4,13 @@
     <title>Musicrows</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <script src="https://kit.fontawesome.com/*******.js" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
   </head>
 
   <body>
@@ -23,15 +24,26 @@
     });
     </script>
 
-    <header class="scroll-nav">
-      <h1>
-         <a href="/">musicrows</a>
-      </h1>
+    <header class="main_h not_show">
+      <%= image_tag "musicrows-favcon.png" , size: '110x55', class: "ml-2" %>
       <nav class="pc-nav">
         <% if user_signed_in?  %>
          <ul>
             <li><%= link_to("Home", root_path, {class: "nav-item nav-link text-light"}) %></li>
             <li><%= link_to("About", root_path, {class: "nav-item nav-link text-light"}) %></li>
+            <li class="nav-item dropdown">
+              <% if unchecked_notifications.any? %><i class="fa fa-circle" style="color: gold;"></i><% end %>
+                <a class="nav-link text-light" data-toggle="dropdown" href="#" role="button" >Notice</a>
+                <div class="dropdown-menu w-20 h-40">
+                  <% if @notifications.exists? %>
+                    <div class="users-index">
+                      <%= render @notifications %>
+                    </div>
+                  <% else %>
+                  <p>通知はありません</p>
+                <% end %>
+                </div>
+            </li>
             <li><%= link_to("投稿する", new_play_list_path, {class: "nav-item nav-link text-light"}) %></li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">マイページ</a>
@@ -64,6 +76,7 @@
           <ul>
             <li><%= link_to("Home", root_path, {class: "nav-item nav-link text-light"}) %></li>
             <li><%= link_to("About", root_path, {class: "nav-item nav-link text-light"}) %></li>
+            <li><%= link_to("Notice", notifications_path, {class: "nav-item nav-link text-light"}) %></li>
             <li><%= link_to("投稿する", new_play_list_path, {class: "nav-item nav-link text-light"}) %></li>
             <li><%= link_to("マイページ", user_path(current_user), {class: "nav-item nav-link text-light"}) %></li>
             <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "nav-item nav-link text-light" %></li>

@@ -2,18 +2,84 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.top-page {
-  z-index: 1;
+.before_signin {
+  .btns {
+    .registration {
+      display: block;
+      justify-content: center;
+      text-align: center;
+      width: 60%;
+      margin-top: 15px;
+      line-height: 48px;
+      font-size: 14px;
+      margin: auto;
+      .btn-email {
+        border: 2px solid #08204f;
+      }
+      .btn-twitter {
+        border: 2px solid rgb(29, 161, 242);
+      }
+      .btn-google {
+        border: 2px solid transparent;
+        border-image: url('google-image2.png');
+        border-image-slice: 2;
+        border-image-repeat: stretch;
+        // border-image: linear-gradient(to right bottom,
+        // #4285f4, #34a853, #fbbc05, #ea4335)
+        // 1 / 1 / 0;
+      }
+    }
+  }
 }
+
+.before_signup {
+  .btns {
+    .registration {
+      display: block;
+      justify-content: center;
+      text-align: center;
+      width: 60%;
+      margin-top: 15px;
+      line-height: 48px;
+      font-size: 14px;
+      margin: auto;
+      .btn-email {
+        border: 2px solid #08204f;
+      }
+      .btn-twitter {
+        border: 2px solid rgb(29, 161, 242);
+      }
+      .btn-google {
+        border: 2px solid transparent;
+        border-image: url('google-image2.png');
+        border-image-slice: 2;
+        border-image-repeat: stretch;
+        // border-image: linear-gradient(to right bottom,
+        // #4285f4, #34a853, #fbbc05, #ea4335)
+        // 1 / 1 / 0;
+      }
+    }
+  }
+}
+.not_show {
+  background-image: none;
+}
+
 
 .top-image {
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background: url(music-top.jpg);
+  background-image: url(music-top.jpg);
   background-size: cover;
   z-index: 1;
 }
+
+.top-content {
+  .top-page {
+  z-index: 1;
+}
+
 
 .top-text {
   justify-content: center;
@@ -55,8 +121,10 @@
     font-size: 20px;
   }
 }
+}
 
-.inner-content {
+.middle-content {
+  .inner-content {
   padding: 10px;
   margin: 10px;
 }
@@ -98,19 +166,8 @@
   }
 }
 
-// .section-title-withoutfirst {
-//   border-top: solid 1px white;
-// }
-
-.registration {
-  display: block;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
-  margin-top: 15px;
-  line-height: 48px;
-  font-size: 14px;
 }
+
 
 @media screen and (max-width: 640px) {
   .top-image {

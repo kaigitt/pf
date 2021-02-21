@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   resources :tags, only: [:create, :destroy]
   resources :play_list_songs, only: [:create, :destroy]
   resources :songs, only: [:create, :destroy]
+  resources :notifications, only: [:index]
+  delete '/notifications/destroy_all' => 'notifications#destroy_all', as: 'destroy_all_users_notifications'
 
   resources :searches, only: [:index]
   resources :contacts, only: [:new, :create]
@@ -34,7 +36,7 @@ Rails.application.routes.draw do
   }
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update]
-    resources :play_lists, only: [:index, :edit, :update]
+    resources :play_lists, only: [:index, :edit, :update, :destroy]
     put "/users/:id/hide" => "users#hide", as: 'users_hide'
     put "/users/:id/open" => "users#open", as: 'users_open'
   end

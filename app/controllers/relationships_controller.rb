@@ -3,6 +3,7 @@ class RelationshipsController < ApplicationController
 
   def follow
     current_user.follow(params[:id])
+    @user.create_notification_follow!(current_user)
     redirect_to user_path(current_user)
   end
 
