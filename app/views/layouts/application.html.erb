@@ -10,6 +10,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
   </head>
 
   <body>
@@ -23,8 +24,8 @@
     });
     </script>
 
-    <header class="scroll-nav">
-          <%= image_tag "musicrows-favcon.png" , size: '110x55', class: "ml-2" %>
+    <header class="main_h not_show">
+      <%= image_tag "musicrows-favcon.png" , size: '110x55', class: "ml-2" %>
       <nav class="pc-nav">
         <% if user_signed_in?  %>
          <ul>

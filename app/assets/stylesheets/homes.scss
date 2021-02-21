@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.not_show {
+  background-image: none;
+}
+
 .top-page {
   z-index: 1;
 }
@@ -96,6 +101,10 @@
   .search-image {
     display: flex;
   }
+}
+
+.middle-content {
+
 }
 
 // .section-title-withoutfirst {

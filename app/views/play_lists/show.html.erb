@@ -70,28 +70,14 @@
     <div class="play_list_include_same_song recommend">
       <div class="card bg-white">
         <div class="title border p-2">「<%= @play_list.title %>」と同じ曲を含むプレイリスト</div>
-        <ul class="content">
-          <% @play_lists.each do |play_list| %>
-          <li class="each-content d-flex p-2">
-             <div class="image"><%= attachment_image_tag play_list, :play_list_image, size: "50x50", fallback: "no-image.jpg" %></div>
-             <div><p class="right"><%= play_list.title %></p></div>
-           </li>
-           <% end %>
-           </ul>
+        <% render "play_list_right_content", play_lists: @play_lists %>
       </div>
 
     </div>
     <div class="play_list_include_same_tag recommend mb-3">
       <div class="card bg-white">
-        <div class="title border p-2">「<%= @play_list.tags.first.name %>」の人気プレイリスト</div>
-        <ul class="content">
-          <% @play_lists.each do |play_list| %>
-          <li class="each-content d-flex p-2">
-             <div class="image"><%= attachment_image_tag play_list, :play_list_image, size: "50x50", fallback: "no-image.jpg" %></div>
-             <div class="right"><p><%= play_list.title %></p></div>
-           </li>
-           <% end %>
-           </ul>
+        <div class="title border p-2"><% if @play_list.tags.present? %>「<%= @play_list.tags.first.name %>」の人気プレイリスト<% end %></div>
+        <% render "play_list_right_content", play_lists: @play_lists %>
       </div>
     </div>
   </div>

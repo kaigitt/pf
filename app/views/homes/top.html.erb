@@ -14,10 +14,11 @@
     </div>
   </div>
 </div>
+
 <div class="middle-content top-page container">
-  <div class="section-title section-to_who pt-5">こんなときに、こんな人に</div>
-  <div class="row">
-    <div class="col-12 bg-white">
+  <div class="section-title section-to_who pt-5 pb-5">こんなときに、こんな人に</div>
+  <div class="row rounded bg-white p-3 ">
+    <div class="col-12 ">
       <div class="play_list_bodys">
       <% @play_lists.each do |play_list| %>
         <% if play_list.body.present? %>
@@ -28,21 +29,23 @@
     </div>
   </div>
   <div class="row">
-    <div class="section-title section-todays_play_list pt-5 col-6">Todays play_list</div>
-    <div class="section-title section-todays_play_list pt-5 col-6">タグから探す</div>
+    <div class="col-5 section-title section-todays_play_list pt-5">曲名から探す</div>
+    <div class="col-1"></div>
+    <div class="col-5 section-title section-todays_play_list pt-5">タグから探す</div>
   </div>
-  <div class="row my-5 content">
-    <div class="col-6 bg-white content-left">
+  <div class="row my-5 content d-flex justify-content-center">
+    <div class="col-5 bg-white rounded mr-1 content-left">
       <div class="inner-content">
        <% @songs.each do |song| %>
-       <% if song.name.present? %>
-       <% @search = song.name %>
-        <p><%= link_to searches_path(search: @search, target: "play_list") do %><%= song.name %> / <%= song.artist_name %><% end %></p>
-       <% end %>
+         <% if song.name.present? %>
+           <% @search = song.name %>
+             <p><%= link_to searches_path(search: @search, target: "play_list") do %><%= song.name %> / <%= song.artist_name %><% end %></p>
+            <% end %>
        <% end %>
       </div>
     </div>
-    <div class="col-6 bg-white content-right">
+    <div class="col-1"></div>
+    <div class="col-5 bg-white rounded ml-1 content-right">
       <div class="inner-content">
         <% @tags.each do |tag|%>
           <% @search = tag.name %>
@@ -61,7 +64,7 @@
       <% end %>
     </div>
   </div>
-  <div class="section-title">new release</div>
+  <div class="section-title">人気プレイリスト</div>
   <div class="row my-5 conetnt">
     <div class="col-2"><h2></h2></div>
     <div id="slider" class="col-12">
@@ -73,7 +76,7 @@
       <% end %>
     </div>
   </div>
-  <div class="section-title recomend-play_lists pt-5">pickup user</div>
+  <div class="section-title recomend-play_lists pt-5">人気のユーザ</div>
   <div class="row my-5 content">
     <div id="slider2" class="col-12">
       <% @users.each do |user| %>
