@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def show
   end
 
@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
     @comment.play_list_id =@play_list.id
     @comment.user_id = current_user.id
     if @comment.save
+      @comment.create_notification_comment!(current_user, @comment.id)
       redirect_to play_list_path(@play_list)
     else
       render :show

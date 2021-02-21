@@ -1,0 +1,18 @@
+
+<div class="container">
+  <div class="row bg-white pt-5">
+      <div class="col-12"><h3 class="text-center">通知</h3></div>
+    <%= link_to destroy_all_users_notifications_path, method: :delete do %>
+      <i class="fas fa-trash" style="color: black;"></i>
+      <h7 style="color: black;"><i class="fas fa-trash"></i></h7>
+    <% end %>
+    <hr>
+   <% if @notifications.exists? %>
+    <div class="users-index">
+        <%= render @notifications %>
+    </div>
+   <% else %>
+    <p>通知はありません</p>
+   <% end %>
+   </div>
+</div>
