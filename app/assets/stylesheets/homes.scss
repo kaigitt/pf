@@ -70,7 +70,7 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background-image: url(music-top.jpg);
+  background-image: image-url(music-top.jpg);
   background-size: cover;
   z-index: 1;
 }
@@ -171,7 +171,7 @@
 
 @media screen and (max-width: 640px) {
   .top-image {
-    background: url(music_responsive.png);
+    background-image: image-url(music_responsive.png);
     background-size: cover;
     background-position: right 10% bottom 10%;
     position: relative;
