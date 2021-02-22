@@ -13,9 +13,9 @@ class Batch::ReportWeekly
   end
 
     @client = Twitter::REST::Client.new do |config|
-    config.consumer_key        = 'vKDgmqwPWuWOwp1GaKPwLUHxM'
-    config.consumer_secret     = 'bh3p8JU5prZr1EjMnVZwHvVa0LC3yqGOHHwfNthZfLtcKmrWLI'
-    config.access_token        = '1336291744313344000-Qe6YR7ugsvu0YVBDlYrLSP9mp0EQMi'
-    config.access_token_secret = '1rjkr8p3wqfJikMY2056OwxEkzlmSfBZGkaXm1b0hgPqi'
+    config.consumer_key        = ENV['TWITTER_API_KEY']
+    config.consumer_secret     = ENV['TWITTER_API_SECRET_KEY']
+    config.access_token        = ENV['YOUR_ACCESS_TOKEN']
+    config.access_token_secret = ENV['YOUR_ACCESS_SECRET']
   end
 end
