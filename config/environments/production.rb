@@ -63,18 +63,18 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "musicrows_#{Rails.env}"
 
-#   config.action_mailer.raise_delivery_errors = true
-#   config.action_mailer.default_url_options = { host: 'アプリ名.herokuapp.com' }
-#   ActionMailer::Base.delivery_method = :smtp
-#   ActionMailer::Base.smtp_settings = {
-#     user_name: ENV['s12201600350@gmail.com'],
-#     password: ENV['uhcqwdotqtzkzzdx'],
-#     domain: "heroku.com",
-#     address: "smtp.sendgrid.net",
-#     port: 587,
-#     authentication: :plain,
-#     enable_starttls_auto: true
-#     }
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { host: 'アプリ名.herokuapp.com' }
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    user_name: ENV['s12201600350@gmail.com'],
+    password: ENV['uhcqwdotqtzkzzdx'],
+    domain: "heroku.com",
+    address: "smtp.sendgrid.net",
+    port: 587,
+    authentication: :plain,
+    enable_starttls_auto: true
+    }
 
   config.action_mailer.perform_caching = false
 
