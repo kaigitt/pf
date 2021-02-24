@@ -15,7 +15,6 @@ class CommentsController < ApplicationController
     else
       render :show
     end
-
   end
 
   def edit

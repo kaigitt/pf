@@ -22,6 +22,7 @@
         <% if current_user.id == @user.id %>
           <%= link_to "プロフィールを編集する", profile_path, class: "btn btn-outline-dark mt-3" %>
         <% else %>
+        <%= link_to "dm", "/rooms/create/#{@user.id}", method: :post %>
           <% if current_user.following?(@user)%>
             <%= link_to "フォローを外す", user_unfollow_path(@user), class: "btn btn-outline-dark" , method: :delete %>
           <% else %>
@@ -29,6 +30,7 @@
           <% end %>
         <% end %>
       </div>
+
     </div>
     <div class="my-page-right  bg-white">
       <div class="my-page-right-top m-3">
@@ -56,8 +58,8 @@
                 </div>
               </div>
             <% end %>
-      　　</div>
-      　　<div class="content">
+      </div>
+      <div class="content">
             <% @user.favorite_play_lists.each do |play_list| %>
             <div class="row">
             <div class="col-4"><%= link_to play_list_path(play_list) do %><%= attachment_image_tag play_list, :play_list_image, size: "50x50" %><% end %></div>
@@ -65,7 +67,7 @@
             <div class="col-4"><%= play_list.body %></div>
             </div>
             <% end %>
-      　  </div>
+      </div>
       </div>
     </div>
   </div>

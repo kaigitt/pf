@@ -1,0 +1,17 @@
+<div class="container mt-5">
+  <div class="row bg-white">
+
+    <div id="messages" data-room_id="<%= @room.id %>">
+      <%= render @messages %>
+    </div>
+
+<form>
+  <label>Say something:</label><br>
+  <input type="text" data-behavior="room_speaker">
+  <input type="hidden" id="room_id" name="room_id" value="<%= @room.id %>">
+</form>
+
+  </div>
+</div>
+
+

@@ -70,6 +70,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-rails_csrf_protection'
 gem 'rspotify'
 gem 'whenever', require: false
+gem 'redis-rails'
 
 gem 'dotenv-rails'
 group :production do
