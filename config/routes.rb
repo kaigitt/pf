@@ -27,6 +27,10 @@ Rails.application.routes.draw do
   resources :songs, only: [:create, :destroy]
   resources :notifications, only: [:index]
   delete '/notifications/destroy_all' => 'notifications#destroy_all', as: 'destroy_all_users_notifications'
+  resources :rooms, only: [:show] do
+      resources :messages
+    end
+  post "rooms/create/:id", to: "rooms#create"
 
   resources :searches, only: [:index]
   resources :contacts, only: [:new, :create]

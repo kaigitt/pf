@@ -51,7 +51,7 @@
       }
       .btn-google {
         border: 2px solid transparent;
-        border-image: url('google-image2.png');
+        border-image: image-url('google-image2.png');
         border-image-slice: 2;
         border-image-repeat: stretch;
         // border-image: linear-gradient(to right bottom,
@@ -61,6 +61,8 @@
     }
   }
 }
+
+// homes#topのみ600pxまでヘッダーの背景画像非表示
 .not_show {
   background-image: none;
 }
@@ -70,7 +72,7 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background-image: image-url(music-top.jpg);
+  background-image: image-url("music-top.jpg");
   background-size: cover;
   z-index: 1;
 }
@@ -136,7 +138,8 @@
   padding-top: 100px;
 }
 
-.slider-content{
+#slider {
+  .slider-content{
  display: flex;
  justify-content: center;
  text-align: center;
@@ -159,6 +162,8 @@
   color: white;
   font-size: 14px;
 }
+}
+
 
 .search-images {
   .search-image {
@@ -171,7 +176,7 @@
 
 @media screen and (max-width: 640px) {
   .top-image {
-    background-image: image-url(music_responsive.png);
+    background-image: image-url("music_responsive.png");
     background-size: cover;
     background-position: right 10% bottom 10%;
     position: relative;
@@ -183,4 +188,44 @@
   top: 45%;
   left: 50%;
   }
+
+  .middle-content {
+    margin-top: 0px;
+  }
+
+  .section-title {
+    margin-top: 0px;
+  }
+
+  .slider-content{
+   display: flex;
+   justify-content: center;
+   text-align: center;
+   z-index: 1;
+  }
+
+.slider-content:hover {
+  spacity: 0.6;
+  filter: brightness(50%);
+  transition: all .3s;
+}
+
+.slider-content-image-play_list {
+  border-radius: 50px 50px 50px 50px;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.slider-content-title {
+  margin-top: 0px;
+  color: white;
+  font-size: 14px;
+}
+.slider-content-image-user {
+   border-radius: 50px 50px 50px 50px;
+  width: 80px;
+  height: 80px;
+}
 }
