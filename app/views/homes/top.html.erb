@@ -22,7 +22,7 @@
       <div class="play_list_bodys">
       <% @play_lists.each do |play_list| %>
         <% if play_list.body.present? %>
-          <span><%= link_to play_list_path(play_list) do %><%= play_list.body %><% end %></span>
+          <div><span><%= link_to play_list_path(play_list) do %><%= play_list.body %><% end %></span></div>
         <% end %>
       <% end %>
       </div>
@@ -39,7 +39,7 @@
        <% @songs.each do |song| %>
          <% if song.name.present? %>
            <% @search = song.name %>
-             <p><%= link_to searches_path(search: @search, target: "play_list") do %><%= song.name %> / <%= song.artist_name %><% end %></p>
+             <p><%= link_to searches_path(search: @search, target: "song") do %><%= song.name %> / <%= song.artist_name %><% end %></p>
             <% end %>
        <% end %>
       </div>
@@ -59,7 +59,7 @@
     <div class="col-12 seacrh-images">
       <% @play_lists.each do |play_list| %>
         <% if play_list.play_list_image.present? %>
-          <span class="seacrh-image"><%= link_to play_list_path(play_list) do %><%= attachment_image_tag play_list, :play_list_image, size: "100x100", class: "seacrh-images" %><% end %></span>
+          <span class="seacrh-image"><%= link_to play_list_path(play_list) do %><%= attachment_image_tag play_list, :play_list_image, size: "100x100", class: "search-images" %><% end %></span>
         <% end %>
       <% end %>
     </div>
@@ -82,7 +82,7 @@
       <% @users.each do |user| %>
         <div class="slider-content">
           <div class="slider-content-image"><%= link_to user_path(user) do %><%= attachment_image_tag user, :profile_image, size: "150x150", fallback: "no-user-image.png", class: "slider-content-image-user" %><% end %></div>
-          <div class="slider-content-title"><p><%= user.name %></p></div>
+          <div class="slider-content-title d-flex justfy-content-center"><p><%= user.name %></p></div>
         </div>
       <% end %>
     </div>

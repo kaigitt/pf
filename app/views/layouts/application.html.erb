@@ -34,7 +34,7 @@
             <li class="nav-item dropdown">
               <% if unchecked_notifications.any? %><i class="fa fa-circle" style="color: gold;"></i><% end %>
                 <a class="nav-link text-light" data-toggle="dropdown" href="#" role="button" >Notice</a>
-                <div class="dropdown-menu w-20 h-40">
+                <div class="dropdown-menu dropdown-menu-notifications">
                   <% if @notifications.exists? %>
                     <div class="users-index">
                       <%= render @notifications %>
@@ -95,6 +95,7 @@
          <span></span>
       </div>
    </header>
+   
     <%= yield %>
   </body>
 </html>

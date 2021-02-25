@@ -11,20 +11,20 @@
     </div>
    <div class="col-12 mt-5"><h1>"<%= @search %>"の検索結果</h1></div>
    <div class="col-12 mt-4 tab-wrapper d-flex justify-content-center">
-    <div class="tab2 active2">
+    <div class="tab2 tab2-play_list">
       <%=  link_to "プレイリストから探す", searches_path(search: @search, target: "play_list"), remote: true, class: "tab2" %>
     </div>
-    <div class="tab2">
+    <div class="tab2 tab2-song">
       <%= link_to "曲名から探す", searches_path(search: @search, target: "song"), remote: true, class: "tab2 link" %>
     </div>
-    <div class="tab2">
+    <div class="tab2 tab2-tag">
       <%=  link_to "タグから探す", searches_path(search: @search, target: "tag"), remote: true, class: "tab2 link" %>
     </div>
-    <div class="tab2">
+    <div class="tab2 tab2-user">
       <%=  link_to "ユーザから探す", searches_path(search: @search, target: "user"), remote: true, class: "tab2 link" %>
     </div>
-    <div class="tab2">
-      <%=  link_to "アーティストから探す", searches_path(search: @search, target: "user"), remote: true, class: "tab2 linkta" %>
+    <div class="tab2 tab2-artist">
+      <%=  link_to "アーティストから探す", searches_path(search: @search, target: "user"), remote: true, class: "tab2 link" %>
     </div>
   </div>
   </div>
