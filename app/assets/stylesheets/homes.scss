@@ -2,6 +2,87 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// aboutページ
+.about-container {
+  color: white;
+  .top-row {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  .what-musicrows {
+    // background-image: image-url();
+    height: 300px;
+  }
+  }
+  .middle1-row  {
+    height: 300px;
+    .left-content {
+
+    }
+    .right-content {
+
+    }
+    .image1 {
+      height: 300px;
+    }
+    .about-image {
+      height: 200px;
+      width: 200px;
+      background-color: white;
+      border-radius: rounded;
+      margin: auto;
+    }
+  }
+  .middle2-row {
+    height: 300px;
+    .about-image {
+      height: 200px;
+      width: 200px;
+      background-color: white;
+      border-radius: rounded;
+      margin: auto;
+    }
+  }
+  .middle3-row {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  .bottom-row {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  .box17{
+    margin:2em 0;
+    position: relative;
+    padding: 0.5em 1.5em;
+    border-top: solid 2px white;
+    border-bottom: solid 2px white;
+  }
+  .box17:before, .box17:after{
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 2px;
+    height: -webkit-calc(100% + 20px);
+    height: calc(100% + 20px);
+    background-color: white;
+  }
+  .box17:before {left: 10px;}
+  .box17:after {right: 10px;}
+  .box17 p {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+
+
+
+// topページ
 .before_signin {
   .btns {
     .registration {
@@ -66,7 +147,6 @@
 .not_show {
   background-image: none;
 }
-
 
 .top-image {
   position: relative;

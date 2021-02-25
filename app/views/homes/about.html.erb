@@ -1,2 +1,62 @@
-<h1>Homes#about</h1>
-<p>Find me in app/views/homes/about.html.erb</p>
+<div class="container about-container">
+  <div class="row top-row">
+    <div class="col-4"></div>
+    <div class="col-4 what-musicrows">
+      <div class="mt-5">
+        <h1>musicrowsとは？</h1>
+        <h3 class="mt-2">musicrowsは好きな音楽</br>プレイリストを共有できるサービスです</h3>
+      </div>
+    </div>
+    <div class="col-4"></div>
+  </div>
+
+  <div class="row middle1-row">
+    <div class="col-6">
+      <div class="left-content about-image image1"><%= image_tag 'headphone.png', size: "200x200" %></div>
+    </div>
+    <div class="col-6">
+      <div class="right-content about-text box17">
+        <h5>なんとなく音楽をきいていませんか？</h5>
+        <p class="p-5">
+          某楽曲サブスクリプションサービスの総楽曲数は7000万曲</br>
+          全ての楽曲を1分聞くとしても</br>
+          ○年かかってしまいます
+        </p>
+        </div>
+    </div>
+  </div>
+  <div class="row middle2-row">
+    <div class="col-6">
+      <div class="left-content about-text box17">
+        <h5>なんとなくイヤホンをしていませんか？</h5>
+        <p class="p-5">
+        街なかでも電車の中でもイヤホンをしている人だらけ</br>
+        音楽を楽しむためにイヤホンを</br>
+        </p>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="right-content about-image image2">image</div>
+    </div>
+  </div>
+  <div class="row middle1-row">
+    <div class="col-6">
+      <div class="left-content about-image image3"><%= image_tag 'AI.png', size: "200x200" %></div>
+    </div>
+    <div class="col-6">
+      <div class="right-content about-text box17">
+        <h5>AIのおすすめの音楽ばかり聞いていませんか？</h5>
+        <p class="p-5">
+          「おすすめの音楽を流して」の一言でAIが選曲してくれる。</br>
+          その曲を消費するだけの人間になっていませんか？</br>
+        </p>
+        </div>
+    </div>
+  </div>
+  <div class="row bottom-row">
+    <div>
+      <h4>もっと音楽を楽しもう！！</h4>
+      <%= link_to("さっそくはじめる", homes_before_signup_path, {class: "btn text-light"}) %>
+    </div>
+  </div>
+</div>
