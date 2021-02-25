@@ -65,25 +65,20 @@
     </div>
   </div>
 
-
   <div class="col-3 show_right right-content mb-3">
     <div class="play_list_include_same_song recommend">
       <div class="card bg-white">
         <div class="title border p-2">「<%= @play_list.title %>」と同じ曲を含むプレイリスト</div>
-        <% render "play_list_right_content", play_lists: @play_lists %>
+        <%= render "play_list_right_content", play_lists: @play_lists_same_song %>
       </div>
 
     </div>
     <div class="play_list_include_same_tag recommend mb-3">
       <div class="card bg-white">
         <div class="title border p-2"><% if @play_list.tags.present? %>「<%= @play_list.tags.first.name %>」の人気プレイリスト<% end %></div>
-        <% render "play_list_right_content", play_lists: @play_lists %>
+        <%= render "play_list_right_content", play_lists: @play_lists_favorite_tag %>
       </div>
     </div>
   </div>
   </div>
 </div>
-
-
-
-

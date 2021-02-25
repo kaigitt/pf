@@ -63,13 +63,14 @@ $(function(){
   })
 });
 
-$(function(){
-  var tabs = $(".tab2");
-  $(".tab2").on("click", function() {
-    $(".active2").removeClass("active2");
-    $(this).addClass("active2");
-  })
-});
+// location.searchで分岐
+// $(function(){
+//   var tabs = $(".tab2");
+//   $(".tab2").on("click", function() {
+//     $(".active2").removeClass("active2");
+//     $(this).addClass("active2");
+//   })
+// });
 
 $(document).on('turbolinks:load',function(){
   if($("#formTagInput").length){

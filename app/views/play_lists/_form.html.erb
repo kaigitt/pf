@@ -1,0 +1,68 @@
+<div class="col-10 bg-white p-5 rounded">
+    <div class="contact-head border-bottom my-3 pb-3"><h1 class="d-flex justify-content-center">プレイリスト作成</h1></div>
+    <div class="form my-3">
+    <%= form_with model: play_list, url: play_lists_path, method: :post, local: true do |f|%>
+    <% if play_list.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% play_list.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+    <div class="row">
+      <div class=" form-group col">
+        <%= f.label "プレイリスト名" %>
+        <%= f.text_field :title, class: "form-control"%>
+          <% if play_list.errors.include?(:title) %>
+          <p style="color: red;"><%= play_list.errors.full_messages_for(:title).first %></p>
+       <% end %>
+      </div>
+      <div class="form-group col">
+        <%= f.label "タグ" %>
+        <%= f.text_field :name, class: "form-control", id: "formTagInput" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label "プレイリスト説明" %>
+      <%= f.text_area :body, class: "form-control", id: "textarea1", rows: "3" %>
+      <% if play_list.errors.include?(:body) %>
+      <p style="color: red;"><%= play_list.errors.full_messages_for(:body).first %>
+     <% end %>
+    </div>
+    <div class="field">
+      <%= f.label "イメージ画像" %>
+      <%= f.attachment_field :play_list_image %>
+    </div>
+      <% play_list.songs.each_with_index do |song, i|%>
+       <%= f.fields_for :songs, song do |song_field| %>
+       <div class="form-group row">
+         <div class="col-6">
+          <%= (i + 1).to_s+ "曲目" %>
+          <%= f.label '曲名' %>
+          <%= song_field.text_field :name, class: "form-control" %>
+          <% if play_list.errors.include?(:name) %>
+          <p style="color: red;"><%= play_list.songs.errors.full_messages_for(:name).first %>
+        <% end %>
+         </div>
+         <div class="col-6">
+          <%= f.label 'アーティスト名' %>
+          <%= song_field.text_field :artist_name, class: "form-control" %>
+          <% if play_list.errors.include?(:artist_name) %>
+           <p style="color: red;"><%= play_list.songs.errors.full_messages_for(:artist_name).first %>
+         <% end %>
+         </div>
+       </div>
+       <div class="form-group">
+         <%= f.label '説明文' %>
+         <%= song_field.text_field :description, class: "form-control" %>
+        </div>
+        <% end %>
+      <% end %>
+    <div class="submit_bottom_group d-flex justify-content-center mt-4">
+    <%= f.submit "入力内容を送信する", class: "btn submit-bottom" %>
+    </div>
+    <% end %>
+    </div>
+    </div>

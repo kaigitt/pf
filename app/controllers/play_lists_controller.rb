@@ -23,7 +23,8 @@ class PlayListsController < ApplicationController
 
   def show
     @play_list = PlayList.find(params[:id])
-    @play_lists = PlayList.last(5)
+    @play_lists_same_song = PlayList.last(5)
+    @play_lists_favorite_tag = PlayList.first(5)
     # like_songs = @play_list.songs.map { |song| "%#{song}%" }
     # @play_list_include_same_song = PlayList.joins(:songs).where(name: like_songs )
     # like_tags = @play_list.tags.map { |tag| "%#{tag}%" }
@@ -39,9 +40,16 @@ class PlayListsController < ApplicationController
   end
 
   def edit
+    @play_list = PlayList.find(params[:id])
   end
 
   def update
+    play_list = PlayList.find(params[:id])
+    if play_list.update
+      redirect_to play_list_path(play_list)
+    else
+      render "play_list/edit"
+    end
   end
 
   def destroy
