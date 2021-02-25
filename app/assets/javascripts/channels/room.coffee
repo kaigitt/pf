@@ -12,7 +12,6 @@ document.addEventListener 'turbolinks:load', ->
     speak: (message) ->
       @perform 'speak', message: message, room: $('#messages').data('room_id')
 
-
 $(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
   if event.keyCode is 13 # return = send
     App.room.speak event.target.value
