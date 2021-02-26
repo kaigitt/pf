@@ -37,7 +37,7 @@
                 <div class="dropdown-menu dropdown-menu-notifications">
                   <% if @notifications.exists? %>
                     <div class="users-index">
-                      <%= render @notifications %>
+                      <%= render partial: "notifications/notification", collection: @notifications %>
                     </div>
                   <% else %>
                   <p>通知はありません</p>
@@ -95,7 +95,11 @@
          <span></span>
       </div>
    </header>
-
+     <div class="flash">
+       <% if flash.present? %>
+         <%= render "layouts/flash", flash: flash %>
+       <% end %>
+     </div>
     <%= yield %>
   </body>
 </html>

@@ -47,6 +47,22 @@ li {
   text-decoration: none;
 }
 
+.flash {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 166px;
+  left: 0px;
+  right: 0;
+  margin: auto;
+  .alert-notice {
+    color: blue;
+  }
+  .alert-alert {
+    color: red;
+  }
+}
+
 .submit-bottom {
   background-color: #063f78;
   color: white;
