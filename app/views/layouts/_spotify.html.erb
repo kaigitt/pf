@@ -1,0 +1,7 @@
+  <div class="spotify">
+    <% if song.exists? %>
+      <% track = RSpotify::Track.search(song.name).first %>
+     <iframe class="iframe-song" src="<%= track.preview_url %>">
+		 <img src="<%= track.album.images.last["url"] %>">
+		 <% end %>
+  </div>

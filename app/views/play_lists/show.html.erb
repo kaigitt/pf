@@ -8,8 +8,8 @@
           <p class="created_at"><%= @play_list.created_at.strftime("%Y-%m-%d") %></p>
         </div>
         <h2 class="play_list_title"><%= @play_list.title %></h2>
-        <div class="play_list_tags">
-          <% @play_list.tags.each do |tag| %><a href="#" class="badge badge-light"><%= tag.name %>(<%= tag.tag_maps.count%>)</a><% end %>
+        <div class="play_list_tags mt-1">
+          <% @play_list.tags.each do |tag| %><a href="#" class="tag"><%= tag.name %>(<%= tag.tag_maps.count%>)</a><% end %>
         </div>
         <div class="play_list_body pt-2"><p><%= @play_list.body %></p></div>
         <div class="song_list">
@@ -25,7 +25,7 @@
     <div class="show_middle bg-white">
     <% @play_list.songs.each do |song| %>
       <div class="play_list_content">
-        <h5 class="song_name_artist"><%= song.name %> / <%= song.artist_name %></h5>
+        <h5 class="song_name_artist"><%= song.name %> / <%= song.artist_name %><%= link_to song_path(song) do%><i class="fas fa-play-circle"></i><% end %></h5>
         <p class="pl-5"><%= song.description %></p>
       </div>
     <% end %>
