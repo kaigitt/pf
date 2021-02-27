@@ -1,0 +1,13 @@
+<div class="container">
+  <% if @track.present? %>
+  <div class="row rounded d-flex justify-content-center">
+		 <div class="col-12 d-flex justify-content-center"><img src="<%= @track.album.images.first["url"] %>" width="300" height="300" class="block"></div>
+		 <div class="col-12 d-flex justify-content-center mt-2"><h3 class="text-light"><%= @track.artists[0].name %></h3></div>
+  </div>
+  <div class="d-flex justify-content-center"><iframe class="iframe-song" src="<%= @track.preview_url %>"></div>
+    <% else %>
+    <div class="row">
+      曲を探せませんでした
+    </div>
+  <% end %>
+</div>

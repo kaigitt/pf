@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   resources :tag_maps, only: [:create, :destroy]
   resources :tags, only: [:create, :destroy]
   resources :play_list_songs, only: [:create, :destroy]
-  resources :songs, only: [:create, :destroy]
+  resources :songs, only: [:show, :create, :destroy]
   resources :notifications, only: [:index]
   delete '/notifications/destroy_all' => 'notifications#destroy_all', as: 'destroy_all_users_notifications'
   resources :rooms, only: [:show] do

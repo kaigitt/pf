@@ -16,7 +16,7 @@
 </div>
 
 <div class="middle-content top-page container">
-  <div class="section-title section-to_who pt-5 pb-5">こんなときに、こんな人に</div>
+  <div class="section-title section-to_who pt-5 pb-5"><h2 class="color-yellow">こんなときに、こんな人に</h2></div>
   <div class="row rounded bg-white p-3 ">
     <div class="col-12 ">
       <div class="play_list_bodys">
@@ -29,9 +29,9 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-5 section-title section-todays_play_list pt-5">曲名から探す</div>
+    <div class="col-5 section-title section-todays_play_list pt-5"><h2 class="color-pink">曲名から探す</h2></div>
     <div class="col-1"></div>
-    <div class="col-5 section-title section-todays_play_list pt-5">タグから探す</div>
+    <div class="col-5 section-title section-todays_play_list pt-5"><h2 class="color-green">タグから探す</h2></div>
   </div>
   <div class="row my-5 content d-flex justify-content-center">
     <div class="col-5 bg-white rounded mr-1 content-left">
@@ -39,7 +39,7 @@
        <% @songs.each do |song| %>
          <% if song.name.present? %>
            <% @search = song.name %>
-             <p><%= link_to searches_path(search: @search, target: "song") do %><%= song.name %> / <%= song.artist_name %><% end %></p>
+             <p class="p-1"><%= link_to searches_path(search: @search, target: "song"), class: "song-border p-2" do %><i class="fas fa-music mr-2"></i><%= song.name %> / <%= song.artist_name %><% end %></p>
             <% end %>
        <% end %>
       </div>
@@ -49,12 +49,12 @@
       <div class="inner-content">
         <% @tags.each do |tag|%>
           <% @search = tag.name %>
-          <span><%= link_to searches_path(search: @search, target: "play_list") do %><%= tag.name %><% end %> </span>
+          <span><%= link_to searches_path(search: @search, target: "tag"), class: "tag" do %><%= tag.name %><% end %> </span>
         <% end %>
       </div>
     </div>
   </div>
-  <div class="section-title section-search-images pt-5">写真から選ぶ</div>
+  <div class="section-title section-search-images pt-5"><h2 class="color-deepblue">写真から選ぶ</h2></div>
   <div class="row my-5 content">
     <div class="col-12 seacrh-images">
       <% @play_lists.each do |play_list| %>
@@ -64,7 +64,7 @@
       <% end %>
     </div>
   </div>
-  <div class="section-title">人気プレイリスト</div>
+  <div class="section-title"><h2 class="color-purple">人気プレイリスト</h2></div>
   <div class="row my-5 conetnt">
     <div class="col-2"><h2></h2></div>
     <div id="slider" class="col-12">
@@ -76,7 +76,7 @@
       <% end %>
     </div>
   </div>
-  <div class="section-title recomend-play_lists pt-5">人気のユーザ</div>
+  <div class="section-title recomend-play_lists pt-5"><h2 class="color-lightblue">人気のユーザ</h2></div>
   <div class="row my-5 content">
     <div id="slider2" class="col-12">
       <% @users.each do |user| %>
