@@ -50,10 +50,7 @@
   .content {
     width: 100%;
   }
-  .content:hover {
-    background-color: grey;
-    transition: 0.5s;
-  }
+
   .results_play_lists {
   }
   .results_songs {
@@ -78,10 +75,7 @@
     }
     }
   }
-  .results_users:hover {
-    background-color: #0b80a7;
-    transition: 0.5s;
-  }
+
 }
 
 @media screen and (max-width: 640px) {

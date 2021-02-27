@@ -71,6 +71,7 @@ gem 'omniauth-rails_csrf_protection'
 gem 'rspotify'
 gem 'whenever', require: false
 gem 'redis-rails'
+gem 'kaminari'
 
 gem 'dotenv-rails'
 group :production do
