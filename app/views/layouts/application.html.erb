@@ -36,6 +36,9 @@
                 <a class="nav-link text-light" data-toggle="dropdown" href="#" role="button" >Notice</a>
                 <div class="dropdown-menu dropdown-menu-notifications">
                   <% if @notifications.exists? %>
+                      <%= link_to destroy_all_users_notifications_path, method: :delete do %>
+                      <i class="fas fa-trash" style="color: black;"></i>
+                      <% end %>
                     <div class="users-index">
                       <%= render partial: "notifications/notification", collection: @notifications %>
                     </div>
