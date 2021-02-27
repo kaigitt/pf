@@ -64,18 +64,22 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "musicrows_#{Rails.env}"
 
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: 'アプリ名.herokuapp.com' }
-  ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.smtp_settings = {
-    user_name: ENV['APP_EMAIL'],
-    password: ENV['APP_PASSWORD'],
-    domain: "heroku.com",
-    address: "smtp.sendgrid.net",
-    port: 587,
-    authentication: :plain,
-    enable_starttls_auto: true
-    }
+  config.action_mailer.default_url_options = {  :host => 'https://musicrows' }
+  #送信方法を指定（この他に:sendmail/:file/:testなどがあります)
+  config.action_mailer.delivery_method = :smtp
+  #送信方法として:smtpを指定した場合は、このconfigを使って送信詳細の設定を行います
+  config.action_mailer.smtp_settings = {
+    #gmail利用時はaddress,domain,portは下記で固定
+    address:"smtp.gmail.com",
+    domain: 'gmail.com',
+    port:587,
+    #gmailのユーザアカウント（xxxx@gmail.com)※念のため、credentials.yml.enc行き
+    user_name: Rails.application.credentials.gmail[:user_name],
+    #gmail２段階認証回避のためにアプリケーションでの利用パスワードを取得、必ずcredentials.yml.endに設定を！！
+    password: Rails.application.credentials.gmail[:password],
+    #パスワードをBase64でエンコード
+    authentication: :login
+  }
 
   config.action_mailer.perform_caching = false
 

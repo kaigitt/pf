@@ -14,5 +14,4 @@ class NotificationsController < ApplicationController
       @notifications = current_user.passive_notifications.destroy_all
       redirect_to request.referer
   end
-
 end

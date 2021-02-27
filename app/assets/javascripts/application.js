@@ -46,9 +46,10 @@ $(document).on('turbolinks:load',function() {
     if ($(window).scrollTop() > 600) {
       $('.main_h').removeClass('not_show');
     }
+    if ($(window).scrollTop() < 600) {
+      $('.main_h').addClass('not_show');
+    }
   });
-  } else {
-    $('.main_h').removeClass('not_show');
   }
 });
 
