@@ -64,12 +64,9 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "musicrows_#{Rails.env}"
 
-  config.action_mailer.default_url_options = {  :host => 'https://musicrows' }
-  #送信方法を指定（この他に:sendmail/:file/:testなどがあります)
+  config.action_mailer.default_url_options = {  :host => 'https://musicrows.com' }
   config.action_mailer.delivery_method = :smtp
-  #送信方法として:smtpを指定した場合は、このconfigを使って送信詳細の設定を行います
   config.action_mailer.smtp_settings = {
-    #gmail利用時はaddress,domain,portは下記で固定
     port:                 587,
     address:              'smtp.gmail.com',
     domain:               'gmail.com',
