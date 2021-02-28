@@ -12,6 +12,7 @@
           <% @play_list.tags.each do |tag| %><a href="#" class="tag"><%= tag.name %>(<%= tag.tag_maps.count%>)</a><% end %>
         </div>
         <div class="play_list_body pt-2"><p><%= @play_list.body %></p></div>
+        
         <div class="song_list">
           <ul>
           <% @play_list.songs.each do |song| %>
@@ -19,6 +20,7 @@
           <% end %>
           </ul>
         </div>
+        
       </div>
       <div class="show_top_right play_list_image col-4"><%= attachment_image_tag @play_list, :play_list_image, size: "200x200", fallback: "no-image.jpg" %></div>
   　</div>

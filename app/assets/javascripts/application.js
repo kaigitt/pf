@@ -54,7 +54,7 @@ $(document).on('turbolinks:load',function() {
 });
 
 
-$(function(){
+$(document).on('turbolinks:load',function() {
   var tabs = $(".tab");
   $(".tab").on("click", function() {
     $(".active").removeClass("active");

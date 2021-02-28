@@ -16,7 +16,7 @@
         <tr>
           <th scope="row"><%= play_list.id %></th>
           <td><%= attachment_image_tag play_list, :play_list_image, size: "50x50", fallback: "no-image.jpg"  %></td>
-          <!--<td><%= link_to admin_play_list_path(play_list.id) do %><%= play_list.title %><% end %></td>-->
+          <td><%= link_to admin_play_list_path(play_list.id) do %><%= play_list.title %><% end %></td>
           <td><%= play_list.title %></td>
           <td><%= play_list.body %></td>
           <td>
@@ -31,4 +31,5 @@
     </div>
   </div>
   </div>
+   <%= paginate @play_lists %>
 </div>

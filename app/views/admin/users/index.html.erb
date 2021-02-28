@@ -15,10 +15,9 @@
   　　  <% @users.each do |user| %>
         <tr>
           <th scope="row"><%= user.id %></th>
-          <!--<td><%= link_to admin_user_path(user) do %><%= attachment_image_tag user, :profile_image, size: "50x50", fallback: "no-user-image.png" %><% end %></td>-->
-          <!--<td><%= link_to admin_user_path(user.id) do %><%= user.name %><% end %></td>-->
-          <td><%= attachment_image_tag user, :profile_image, size: "50x50", fallback: "no-user-image.png" %></td>
-          <td><%= user.name %></td>
+          <td><%= link_to admin_user_path(user) do %><%= attachment_image_tag user, :profile_image, size: "50x50", fallback: "no-user-image.png" %><% end %></td>
+          <td><%= link_to admin_user_path(user.id) do %><%= user.name %><% end %></td>
+          <td><%= user.email%></td>
             <td>
               <% if user.is_deleted == false %>
                 <%= link_to "アカウント停止", admin_users_hide_path(user),method: :put, class: "btn btn-danger", "data-confirm" => "本当に停止しますか？" %>
@@ -33,4 +32,5 @@
 　　　</table>
     </div>
   </div>
+   <%= paginate @users %>
   </div>

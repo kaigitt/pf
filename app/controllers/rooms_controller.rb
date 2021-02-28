@@ -4,6 +4,7 @@ class RoomsController < ApplicationController
     protect_room(params[:id])
     @room = Room.find(params[:id])
     @messages = @room.messages
+    @messages2 = Message.where(user_id: current_user.id)
   end
 
   def create
