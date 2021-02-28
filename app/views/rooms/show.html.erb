@@ -1,16 +1,38 @@
-<div class="container mt-5">
-  <div class="row bg-white">
-    <div class="fukidashi">
-    <div id="messages" class="chatting" data-room_id="<%= @room.id %>">
-      <%= render @messages %>
+<div class="container">
+<div class="row">
+  <div class="col-3 dm-show-left">
+    <div class="card bg-white mt-3" style="width: 18rem;">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">kaito</li>
+        <li class="list-group-item">kyoka</li>
+        <li class="list-group-item">tanaka</li>
+      </ul>
     </div>
-    </div>
+  </div>
+  <div class="col-8 dm-show-right">
+    <div id="chats" id="messages" class="chatting" data-room_id="<%= @room.id %>">
+  <% @room.messages.each do |message|%>
+    <%if message.user_id == current_user.id %>
+      <div class="mycomment">
+        <p><%= message.body %></p>
+      </div>
+    <%else%>
+      <div class="fukidasi">
+        <div class="chatting">
+          <div class="says">
+            <p><%= message.body %></p>
+          </div>
+        </div>
+      </div>
+    <%end%>
+  <%end%>
+  </div>
     <form class="input-form" id="send-form">
-      <label>Say something:</label><br>
       <input type="text" id="sentence" data-behavior="room_speaker">
       <input type="hidden" id="room_id send" name="room_id" value="<%= @room.id %>">
     </form>
   </div>
+</div>
 </div>
 
 
