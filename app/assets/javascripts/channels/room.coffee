@@ -6,12 +6,12 @@ document.addEventListener 'turbolinks:load', ->
     disconnected: ->
     # Called when the subscription has been terminated by the server
 
-    received: (data) ->
-      if data["isCurrent_user"]==true
-        message = `<div class='mycomment'><p>${data["message"]}</p></div>`
-      else
-        message = `<div class='fukidasi'><div class='chatting'><div class='says'><p>${data["message"]}</p></div></div></div>`
-      $('#chats').append(message)
+    # received: (data) ->
+    #   if data["isCurrent_user"]==true
+    #     message = `<div class='mycomment'><p>${data["message"]}</p></div>`
+    #   else
+    #     message = `<div class='fukidasi'><div class='chatting'><div class='says'><p>${data["message"]}</p></div></div></div>`
+    #   $('#chats').append(message)
 
     speak: (message) ->
       @perform 'speak', message: message, room: $('#messages').data('room_id')
