@@ -1,7 +1,7 @@
 <ul class="content">
   <% play_lists.each do |play_list| %>
   <li class="each-content d-flex p-2">
-     <div class="image"><%= attachment_image_tag play_list, :play_list_image, size: "50x50", fallback: "no-image.jpg" %></div>
+     <div class="image"><%= link_to play_list_path(play_list) do %><%= attachment_image_tag play_list, :play_list_image, size: "50x50", fallback: "no-image.jpg" %><% end %></div>
      <div><p class="right"><%= play_list.title %></p></div>
    </li>
   <% end %>
