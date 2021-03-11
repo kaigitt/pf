@@ -6,11 +6,6 @@ document.addEventListener 'turbolinks:load', ->
     disconnected: ->
     # Called when the subscription has been terminated by the server
 
-    received: (data) ->
-      if data["isCurrent_user"]==true
-      else
-      $('#chats').append(message)
-
     speak: (message) ->
       @perform 'speak', message: message, room: $('#messages').data('room_id')
 
