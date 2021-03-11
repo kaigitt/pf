@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
   def create
     @play_list = PlayList.find(params[:play_list_id])
     @comment = Comment.new(comment_params)
-    @comment.play_list_id =@play_list.id
+    @comment.play_list_id = @play_list.id
     @comment.user_id = current_user.id
     if @comment.save
       @comment.create_notification_comment!(current_user, @comment.id)
