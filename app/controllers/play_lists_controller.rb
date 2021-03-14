@@ -23,12 +23,12 @@ class PlayListsController < ApplicationController
 
   def show
     @play_list = PlayList.find(params[:id])
-    @play_lists_same_song = PlayList.last(5)
-    @play_lists_favorite_tag = PlayList.first(5)
     # like_songs = @play_list.songs.map { |song| "%#{song}%" }
     # @play_list_include_same_song = PlayList.joins(:songs).where(name: like_songs )
+    @play_lists_same_song = PlayList.last(5)
     # like_tags = @play_list.tags.map { |tag| "%#{tag}%" }
     # @play_list_include_same_tag = PlayList.joins(:tags).where(name: like_tags )
+    @play_lists_favorite_tag = PlayList.first(5)
     # @play_list_include_same_tag_new
     @comments = Comment.where(play_list_id: @play_list.id)
     @comment = Comment.new
