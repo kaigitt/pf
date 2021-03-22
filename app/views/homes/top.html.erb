@@ -18,7 +18,7 @@
 <div class="middle-content top-page container">
   <div class="section-title section-to_who pt-5 pb-5"><h2 class="color-yellow">こんなときに、こんな人に</h2></div>
   <div class="row rounded bg-white p-3 ">
-    <div class="col-12 ">
+    <div class="col-12">
       <div class="play_list_bodys">
       <% @play_lists.each do |play_list| %>
         <% if play_list.body.present? %>
@@ -35,11 +35,12 @@
   </div>
   <div class="row my-5 content d-flex justify-content-center">
     <div class="col-5 bg-white rounded mr-1 content-left">
+
       <div class="inner-content">
        <% @songs.each do |song| %>
          <% if song.name.present? %>
            <% @search = song.name %>
-             <p class="p-1"><%= link_to searches_path(search: @search, target: "song"), class: "song-border p-2" do %><i class="fas fa-music mr-2"></i><%= song.name %> / <%= song.artist_name %><% end %></p>
+             <p class="p-1"><%= link_to searches_path(search: @search, target: "song"), class: "song-border p-2 w-100" do %><i class="fas fa-music mr-2"></i><%= song.name %> / <%= song.artist_name %><% end %></p>
             <% end %>
        <% end %>
       </div>

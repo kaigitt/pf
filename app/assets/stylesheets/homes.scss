@@ -272,7 +272,7 @@
 
 @media screen and (max-width: 640px) {
   .top-image {
-    background-image: image-url("music_responsive.png");
+    // background-image: image-url("music_responsive.png");
     background-size: cover;
     background-position: right 10% bottom 10%;
     position: relative;
@@ -324,5 +324,9 @@
   width: 80px;
   height: 80px;
 }
+
+// .song_border {
+//   font-size: 5px;
+// }
 
 }
