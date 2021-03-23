@@ -80,3 +80,6 @@ group :production do
 end
 
 gem 'twitter'
+gem 'rspec-rails'
+
+gem 'factory_bot_rails'
