@@ -4,7 +4,7 @@
     <div class="show_top row">
       <div class="show_top_left col-8">
         <div class="name_created_at">
-          <h4 class="user_name"><%= @play_list.user.name %></h4>
+          <h4 class="user_name"><%= link_to user_path(@play_list.user_id) do %><%= @play_list.user.name %><% end %></h4>
           <p class="created_at"><%= @play_list.created_at.strftime("%Y-%m-%d") %></p>
         </div>
         <h2 class="play_list_title"><%= @play_list.title %></h2>
