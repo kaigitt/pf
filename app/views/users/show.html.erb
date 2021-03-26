@@ -19,17 +19,19 @@
          <div class="col-4 d-flex justify-content-center text-secondary">フォロワー</div>
         </div>
       </div>
-      <div class="user-info-edit d-flex justify-content-center pb-3">
+      <div class="user-info-edit d-flex justify-content-center mt-2 pb-3">
         <% if current_user.id == @user.id %>
           <%= link_to "プロフィールを編集する", profile_path, class: "btn btn-outline-dark mt-3" %>
         <% else %>
-        <%= link_to "dm", "/rooms/create/#{@user.id}", method: :post %>
           <% if current_user.following?(@user)%>
             <%= link_to "フォローを外す", user_unfollow_path(@user), class: "btn btn-outline-dark" , method: :delete %>
           <% else %>
             <%= link_to "フォローする", user_follow_path(@user), class: "btn btn-outline-dark" , method: :post %>
           <% end %>
         <% end %>
+      </div>
+      <div class="user-info-dm d-flex justify-content-center pb-1">
+        <%= link_to "dm", "/rooms/create/#{@user.id}", method: :post, class: "btn btn-outline-primary d-flex justify-content-center" %>
       </div>
       </div>
     </div>
