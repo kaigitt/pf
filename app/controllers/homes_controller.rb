@@ -10,7 +10,7 @@ class HomesController < ApplicationController
    def top
    #  @play_list_ranks = PlayList.find(Favorite.group(:play_list_id).order('count(play_list_id) desc').limit(8).pluck(:play_list_id))
      @users = User.all
-     @play_lists = PlayList.all
+     @play_lists_intro = PlayList.last(10)
      @songs = Song.last(50).shuffle.last(10)
      @tags =Tag.last(20)
      @todays_play_list = PlayList.last
