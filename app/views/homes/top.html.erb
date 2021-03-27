@@ -16,11 +16,11 @@
 </div>
 
 <div class="middle-content top-page container">
-  <div class="section-title section-to_who pt-5 pb-5"><h2 class="color-yellow">こんなときに、こんな人に</h2></div>
+  <div class="section-title section-to_who pb-5"><h2 class="color-yellow">こんなときに、こんな人に</h2></div>
   <div class="row rounded bg-white p-3 ">
     <div class="col-12">
       <div class="play_list_bodys">
-      <% @play_lists.each do |play_list| %>
+      <% @play_lists_intro.each do |play_list| %>
         <% if play_list.body.present? %>
           <div><span><%= link_to play_list_path(play_list) do %><%= play_list.body %><% end %></span></div>
         <% end %>
@@ -28,15 +28,10 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-5 section-title section-todays_play_list pt-5"><h2 class="color-pink">曲名から探す</h2></div>
-    <div class="col-1"></div>
-    <div class="col-5 section-title section-todays_play_list pt-5"><h2 class="color-green">タグから探す</h2></div>
-  </div>
   <div class="row my-5 content d-flex justify-content-center">
-    <div class="col-5 bg-white rounded mr-1 content-left">
-
-      <div class="inner-content">
+    <div class="col-md-5 rounded mr-1 content-left">
+      <div class="section-title section-todays_play_list mt-3"><h2 class="color-pink">曲名から探す</h2></div>
+      <div class="inner-content rounded bg-white">
        <% @songs.each do |song| %>
          <% if song.name.present? %>
            <% @search = song.name %>
@@ -46,8 +41,9 @@
       </div>
     </div>
     <div class="col-1"></div>
-    <div class="col-5 bg-white rounded ml-1 content-right">
-      <div class="inner-content">
+    <div class="col-md-5 ml-1 content-right">
+      <div class="section-title section-todays_play_list mt-3"><h2 class="color-green">タグから探す</h2></div>
+      <div class="inner-content bg-white rounded">
         <% @tags.each do |tag|%>
           <% @search = tag.name %>
           <span><%= link_to searches_path(search: @search, target: "tag"), class: "tag" do %><%= tag.name %><% end %> </span>
@@ -58,7 +54,7 @@
   <div class="section-title section-search-images pt-5"><h2 class="color-deepblue">写真から選ぶ</h2></div>
   <div class="row my-5 content">
     <div class="col-12 seacrh-images">
-      <% @play_lists.each do |play_list| %>
+      <% @play_lists_intro.each do |play_list| %>
         <% if play_list.play_list_image.present? %>
           <span class="seacrh-image"><%= link_to play_list_path(play_list) do %><%= attachment_image_tag play_list, :play_list_image, size: "100x100", class: "search-images" %><% end %></span>
         <% end %>
@@ -69,7 +65,7 @@
   <div class="row my-5 conetnt">
     <div class="col-2"><h2></h2></div>
     <div id="slider" class="col-12">
-      <% @play_lists.each do |play_list| %>
+      <% @play_lists_intro.each do |play_list| %>
         <div class="slider-content">
           <div class="slider-content-image"><%= link_to play_list_path(play_list) do %><%= attachment_image_tag play_list, :play_list_image, size: "200x200", fallback: "no-image.jpg", class: "slider-content-image-play_list" %><% end %></div>
           <div class="slider-content-title"><p><%= play_list.title %></p></div>
