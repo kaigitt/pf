@@ -5,6 +5,11 @@
 // aboutページ
 .about-container {
   color: white;
+  .images {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
   .top-row {
   display: flex;
   justify-content: center;
@@ -175,13 +180,14 @@
 }
 
 .search-div {
+  width: 90%;
   padding: 20px 40px;
   position: absolute;
   top: 79%;
   left: 50%;
   transform: translateX(-50%);
   .search-input {
-    width: 500px;
+    width: 90%;
     height: 60px;
     font-size: 20px;
     border-radius:2px;
@@ -277,6 +283,35 @@
     min-height: 100vh;
     z-index: 1;
   }
+
+  .search-div {
+  padding: 20px 40px;
+  position: absolute;
+  top: 79%;
+  left: 50%;
+  transform: translateX(-50%);
+      width: 100%;
+  .search-input {
+    width: 90%;
+    height: 60px;
+    font-size: 20px;
+    border-radius:2px;
+    outline:0;
+    background:#eee;
+    position:relative;
+  }
+  .sbtn2{
+    height: 50px;
+    position: absolute;
+    left: 88%;
+    top: 20%;
+    background: none;
+    color: #666;
+    border: none;
+    font-size: 20px;
+    }
+  }
+
   .search-div {
   top: 45%;
   left: 50%;
@@ -307,6 +342,12 @@
   transition: all .3s;
 }
 
+.slider-content-image {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
 .slider-content-image-play_list {
   border-radius: 50px 50px 50px 50px;
   width: 100px;
@@ -316,6 +357,9 @@
 }
 
 .slider-content-title {
+  display: flex;
+   justify-content: center;
+   text-align: center;
   margin-top: 0px;
   color: white;
   font-size: 14px;
@@ -329,5 +373,11 @@
 // .song_border {
 //   font-size: 5px;
 // }
+
+.about-container {
+  .middle1-row {
+    height: 500px;
+  }
+}
 
 }

@@ -55,19 +55,20 @@ $(function() {
 });
 });
 
-$(document).on('turbolinks:load',function() {
-  if (location.pathname == "/" ){
-  $(window).scroll(function() {
-  console.log(location.pathname)
-    if ($(window).scrollTop() > 600) {
-      $('.main_h').removeClass('not_show');
-    }
-    if ($(window).scrollTop() < 600) {
-      $('.main_h').addClass('not_show');
-    }
-  });
-  }
-});
+// ヘッダー黒くする
+// $(document).on('turbolinks:load',function() {
+//   if (location.pathname == "/" ){
+//   $(window).scroll(function() {
+//   console.log(location.pathname)
+//     if ($(window).scrollTop() > 600) {
+//       $('.main_h').removeClass('not_show');
+//     }
+//     if ($(window).scrollTop() < 600) {
+//       $('.main_h').addClass('not_show');
+//     }
+//   });
+//   }
+// });
 
 
 $(document).on('turbolinks:load',function() {
