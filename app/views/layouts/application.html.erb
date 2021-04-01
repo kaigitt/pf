@@ -60,6 +60,7 @@
          </ul>
         <% elsif admin_signed_in? %>
         <ul>
+          <li><%= link_to("管理画面", admin_management_path, {class: "nav-item nav-link text-light"}) %></li>
           <li><%= link_to("ユーザ一覧", admin_users_path, {class: "nav-item nav-link text-light"}) %></li>
           <li><%= link_to("プレイリスト一覧", admin_play_lists_path, {class: "nav-item nav-link text-light"}) %></li>
           <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "nav-item nav-link text-light" %></li>

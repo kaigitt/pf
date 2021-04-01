@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row bg-white rounded pt-3">
+    <h3>月別新規登録者数</h3>
+    <%= column_chart User.group_by_month(:created_at).count %>
+    <table>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </table>
+  </div>
+  <div class="row bg-white pt-3">
+  <h3>月別新規プレイリスト投稿数</h3>
+    <%= column_chart PlayList.group_by_month(:created_at).count %>
+  </div>
+</div>

@@ -18,6 +18,8 @@
 //= require turbolinks
 //= require jquery-ui.min
 //= require jquery.tagsinput.min
+//= require chartkick
+//= require Chart.bundle
 //= require_tree .
 
 

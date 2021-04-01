@@ -81,5 +81,7 @@ end
 
 gem 'twitter'
 gem 'rspec-rails'
-
 gem 'factory_bot_rails'
+# グラフ用
+gem "chartkick"
+gem 'groupdate' 

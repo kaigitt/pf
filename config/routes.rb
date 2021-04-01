@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'mypages/profile'=> 'mypages#profile', as: 'profile'
   get 'mypages/account'=> 'mypages#account', as: 'account'
   get 'mypages/resign'=> 'mypages#resign', as: 'resign'
+
+  # 通常ユーザ関連
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations' }
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
@@ -31,14 +33,15 @@ Rails.application.routes.draw do
       resources :messages
     end
   post "rooms/create/:id", to: "rooms#create"
-
   resources :searches, only: [:index]
   resources :contacts, only: [:new, :create]
 
+  # admin関連
   devise_for :admins, controllers: {
     sessions: 'admins/sessions'
   }
   namespace :admin do
+    get 'management/management', as: "management"
     resources :users, only: [:index, :show, :edit, :update]
     resources :play_lists, only: [:index, :edit, :update, :destroy]
     put "/users/:id/hide" => "users#hide", as: 'users_hide'
