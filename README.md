@@ -31,7 +31,10 @@ JPOP、洋楽、アニメ、演歌、クラシックなどのジャンルや「�
 ## 機能一覧
 https://docs.google.com/spreadsheets/d/1bVxC7ldB10IFk4zfEUb5jYWyB-pHAIPOx0W2C7T2HYo/edit#gid=0
 
-## 開発環境
+## 開発・使用技術
+
+#　フロントエンド
+
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
