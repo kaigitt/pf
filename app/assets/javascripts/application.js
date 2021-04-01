@@ -18,6 +18,8 @@
 //= require turbolinks
 //= require jquery-ui.min
 //= require jquery.tagsinput.min
+//= require chartkick
+//= require Chart.bundle
 //= require_tree .
 
 
@@ -27,9 +29,8 @@ $(function() {
   $('#slider').slick({
       slidesToShow: 4, //表示するスライドの数
       slidesToScroll: 4, //スクロールで切り替わるスライドの数
-
       responsive: [{
-        breakpoint: 768, //画面幅768pxで以下のセッティング
+        breakpoint: 640, //画面幅768pxで以下のセッティング
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
@@ -45,7 +46,7 @@ $(function() {
       slidesToShow: 5, //表示するスライドの数
       slidesToScroll: 5, //スクロールで切り替わるスライドの数
       responsive: [{
-        breakpoint: 768, //画面幅768pxで以下のセッティング
+        breakpoint: 640, //画面幅768pxで以下のセッティング
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,

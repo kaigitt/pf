@@ -18,7 +18,8 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-
+require File.expand_path(File.dirname(__FILE__) + "/environment")
+set :environment, :development  # 実行環境の指定
 set :output, 'log/crontab.log'
 set :environment, :development
 

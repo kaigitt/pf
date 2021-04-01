@@ -18,11 +18,11 @@
 <div class="middle-content top-page container">
   <div class="section-title section-to_who pb-5"><h2 class="color-yellow">こんなときに、こんな人に</h2></div>
   <div class="row rounded bg-white p-3 ">
-    <div class="col-12">
-      <div class="play_list_bodys">
+    <div class="col-md-12">
+      <div class="play_list_bodys px-1 mx-3">
       <% @play_lists_intro.each do |play_list| %>
         <% if play_list.body.present? %>
-          <div><span><%= link_to play_list_path(play_list) do %><%= play_list.body %><% end %></span></div>
+          <div class="p-1"><span><%= link_to play_list_path(play_list) do %><%= play_list.body %><% end %></span></div>
         <% end %>
       <% end %>
       </div>

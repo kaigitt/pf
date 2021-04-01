@@ -180,7 +180,7 @@
 }
 
 .search-div {
-  width: 90%;
+  width: 80%;
   padding: 20px 40px;
   position: absolute;
   top: 79%;
@@ -193,13 +193,14 @@
     border-radius:2px;
     outline:0;
     background:#eee;
-    position:relative;
+    position: relative;
+    left: 1%;
   }
   .sbtn2{
     height: 50px;
     position: absolute;
     left: 88%;
-    top: 20%;
+    top: 25%;
     background: none;
     color: #666;
     border: none;
