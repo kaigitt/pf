@@ -33,7 +33,7 @@ https://docs.google.com/spreadsheets/d/1bVxC7ldB10IFk4zfEUb5jYWyB-pHAIPOx0W2C7T2
 
 ## 開発・使用技術
 
-#　フロントエンド
+# フロントエンド
 
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
