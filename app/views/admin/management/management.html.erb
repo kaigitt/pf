@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row bg-white rounded pt-3">
+  <div class="row bg-white rounded pt-3 p-3">
     <h3>月別新規登録者数</h3>
     <%= column_chart User.group_by_month(:created_at).count %>
     <table>
@@ -11,8 +11,9 @@
       </tr>
     </table>
   </div>
-  <div class="row bg-white pt-3">
+  <div class="row bg-white pt-3 p-3">
   <h3>月別新規プレイリスト投稿数</h3>
     <%= column_chart PlayList.group_by_month(:created_at).count %>
   </div>
+  <%= link_to "csvで出力する", admin_management_path(format: :csv), class: "d-flex justify-content-center btn btn-success mt-5 mx-5" %>
 </div>
