@@ -12,14 +12,14 @@
     </div>
     <% end %>
     <div class="row">
-      <div class=" form-group col">
+      <div class=" form-group col-md-6">
         <%= f.label "プレイリスト名" %>
         <%= f.text_field :title, class: "form-control"%>
           <% if play_list.errors.include?(:title) %>
           <p style="color: red;"><%= play_list.errors.full_messages_for(:title).first %></p>
        <% end %>
       </div>
-      <div class="form-group col">
+      <div class="form-group col-md-6">
         <%= f.label "タグ" %>
         <%= f.text_field :name, class: "form-control", id: "formTagInput" %>
       </div>
@@ -38,7 +38,7 @@
       <% play_list.songs.each_with_index do |song, i|%>
        <%= f.fields_for :songs, song do |song_field| %>
        <div class="form-group row">
-         <div class="col-6">
+         <div class="col-md-6">
           <%= (i + 1).to_s+ "曲目" %>
           <%= f.label '曲名' %>
           <%= song_field.text_field :name, class: "form-control" %>
@@ -46,7 +46,7 @@
           <p style="color: red;"><%= play_list.songs.errors.full_messages_for(:name).first %>
         <% end %>
          </div>
-         <div class="col-6">
+         <div class="col-md-6">
           <%= f.label 'アーティスト名' %>
           <%= song_field.text_field :artist_name, class: "form-control" %>
           <% if play_list.errors.include?(:artist_name) %>

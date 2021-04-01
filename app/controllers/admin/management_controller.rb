@@ -36,6 +36,6 @@ class Admin::ManagementController < ApplicationController
             csv << column_values
         end
     end
-    send_data(csv_data, filename: "月別.csv")
+    send_data(csv_data, filename: "月別データ.csv")
   end
 end
