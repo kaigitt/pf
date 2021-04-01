@@ -25,7 +25,7 @@ JPOP、洋楽、アニメ、演歌、クラシックなどのジャンルや「�
 ・移り変わりの早い近年の音楽業界において、他人よりもいち早く新しい音楽を知りたい・聞きたいと考えている人に向けて
 
 ## 設計書
-詳細設計書　https://docs.google.com/spreadsheets/d/1kbCovqBmVcFILPIDRSiNhuAIIp-9geHypQvODz3W8mQ/edit#gid=0
+詳細設計書　https://docs.google.com/spreadsheets/d/1kbCovqBmVcFILPIDRSiNhuAIIp-9geHypQvODz3W8mQ/edit#gid=0　　　　　
 テーブル定義書　https://docs.google.com/spreadsheets/d/1x5gCQTDN92lIq13M9aTCvdfLtn559yPjLu2vmerayr4/edit#gid=0
 
 ## 機能一覧
@@ -33,10 +33,28 @@ https://docs.google.com/spreadsheets/d/1bVxC7ldB10IFk4zfEUb5jYWyB-pHAIPOx0W2C7T2
 
 ## 開発・使用技術
 
-# フロントエンド
+### フロントエンド
+・Bootstrap 4.5.0
+・JavaScript、jQuery、Ajax
 
-- OS：Linux(CentOS)
-- 言語：HTML,CSS,JavaScript,Ruby,SQL
-- フレームワーク：Ruby on Rails
-- JSライブラリ：jQuery.js
-- IDE：Cloud9
+### バックエンド
+・ruby 2.6.3
+・Rails 5.2.4.5
+
+### 開発環境
+・AWS(cloud9)
+
+### 本番環境
+・AWS (EC2、RDS for MySQL、Route53)
+・MySQL2
+・Nginx、 Puma
+・CircleCIを用いて自動デプロイ
+
+### テスト
+・Rspec（単体/結合）
+
+### その他使用技術
+・ActionMailer
+・ActionCable
+・Whenever（定時処理、毎金、日曜に自動ツイート、データ収集後メール送信）
+・外部API（Twitter, Google, Spotify)
