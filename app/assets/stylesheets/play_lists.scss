@@ -1,3 +1,30 @@
 // Place all the styles related to the play_lists controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.play_list_show {
+  display: flex;
+  position: relative;
+  .show_left {
+    width: 70%;
+    }
+  .show_right {
+    position: absolute;
+    right: 0px;
+    width: 30%;
+  }
+}
+
+
+@media screen and (max-width: 640px) {
+  .play_list_show {
+    display: block;
+    justify-content: center;
+    .show_left {
+      width: 100%;
+    }
+    .show_right {
+      width: 100%;
+    }
+  }
+}
