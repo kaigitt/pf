@@ -25,7 +25,7 @@ JPOP、洋楽、アニメ、演歌、クラシックなどのジャンルや「�
 ・移り変わりの早い近年の音楽業界において、他人よりもいち早く新しい音楽を知りたい・聞きたいと考えている人に向けて
 
 ## 設計書
-詳細設計書　https://docs.google.com/spreadsheets/d/1kbCovqBmVcFILPIDRSiNhuAIIp-9geHypQvODz3W8mQ/edit#gid=0<br>　　　
+詳細設計書　https://docs.google.com/spreadsheets/d/1kbCovqBmVcFILPIDRSiNhuAIIp-9geHypQvODz3W8mQ/edit#gid=0<br>
 テーブル定義書　https://docs.google.com/spreadsheets/d/1x5gCQTDN92lIq13M9aTCvdfLtn559yPjLu2vmerayr4/edit#gid=0
 
 ## 機能一覧
@@ -58,3 +58,6 @@ https://docs.google.com/spreadsheets/d/1bVxC7ldB10IFk4zfEUb5jYWyB-pHAIPOx0W2C7T2
 ・ActionCable<br>
 ・Whenever（定時処理、毎金、日曜に自動ツイート、データ収集後メール送信）<br>
 ・外部API（Twitter, Google, Spotify)
+
+## ER図
+![ER_musicrows drawio](https://user-images.githubusercontent.com/73706481/113313495-43d5a200-9346-11eb-97ba-42d5cad960f2.png)
