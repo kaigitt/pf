@@ -8,8 +8,6 @@ class User < ApplicationRecord
 
   with_options presence: true do
     validates :name
-    validates :password
-    validates :email
   end
 
   has_many :play_lists, dependent: :destroy
