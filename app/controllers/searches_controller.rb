@@ -6,8 +6,10 @@ class SearchesController < ApplicationController
     redirect_to root_path if params[:search] == ""
     if params[:target] == "song"
       @play_lists = PlayList.joins(:songs).where("songs.name like ?", "%#{params[:search]}%" )
+      # @play_lists = PlayList.joins(:songs).where("songs.name like ?", "%#{sanitize_sql_like(params[:search])}%" )
     elsif params[:target] == "tag"
       @play_lists = PlayList.joins(:tags).where("tags.name like ?", "%#{params[:search]}%" )
+      # @play_lists = PlayList.joins(:tags).where("tags.name like ?", "%#{sanitize_sql_likeparams[:search]}%" )
     elsif params[:target] == 'user'
       @users = User.search_user_lists(params[:search])
     else
