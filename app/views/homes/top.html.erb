@@ -55,9 +55,9 @@
   <div class="row my-5 content">
     <div class="col-12 seacrh-images">
       <% @play_lists_intro.each do |play_list| %>
-        <% if play_list.play_list_image.present? %>
+        <%# if play_list.play_list_image.present? %>
           <span class="seacrh-image"><%= link_to play_list_path(play_list) do %><%= attachment_image_tag play_list, :play_list_image, size: "100x100", class: "search-images" %><% end %></span>
-        <% end %>
+        <%# end %>
       <% end %>
     </div>
   </div>
