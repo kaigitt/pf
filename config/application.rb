@@ -22,5 +22,8 @@ module Musicrows
     config.generators do |g|
       g.test_framework :rspec
     end
+
+    # rack-attack用
+    config.middleware.use Rack::Attack
   end
 end

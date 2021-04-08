@@ -234,6 +234,8 @@ GEM
     puma (3.12.6)
     racc (1.5.2)
     rack (2.2.3)
+    rack-attack (6.5.0)
+      rack (>= 1.0, < 3)
     rack-protection (2.0.8.1)
       rack
     rack-test (1.1.0)
@@ -429,6 +431,7 @@ DEPENDENCIES
   omniauth-rails_csrf_protection
   omniauth-twitter
   puma (~> 3.11)
+  rack-attack
   rails (~> 5.2.4)
   redis-rails
   refile!
