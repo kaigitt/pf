@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_23_130728) do
+ActiveRecord::Schema.define(version: 2021_04_08_140704) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -160,8 +160,12 @@ ActiveRecord::Schema.define(version: 2021_02_23_130728) do
     t.string "username"
     t.boolean "is_deleted", default: false
     t.integer "age"
+    t.integer "failed_attempts", default: 0, null: false
+    t.string "unlock_token"
+    t.datetime "locked_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
 end
