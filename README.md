@@ -61,3 +61,7 @@ https://docs.google.com/spreadsheets/d/1bVxC7ldB10IFk4zfEUb5jYWyB-pHAIPOx0W2C7T2
 
 ## ER図
 ![ER_musicrows drawio](https://user-images.githubusercontent.com/73706481/113313495-43d5a200-9346-11eb-97ba-42d5cad960f2.png)
+
+RSpotifyのgemを用いた実装に関して
+Qiitaにて記事を投稿してます。よかったら御覧ください。
+https://qiita.com/s1122k/items/3ecfc11e05ca1b8cdc14
