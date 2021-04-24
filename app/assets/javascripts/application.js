@@ -20,17 +20,18 @@
 //= require jquery.tagsinput.min
 //= require chartkick
 //= require Chart.bundle
-//= require_tree .
 
 
 /* global $*/
+
+// homes/topでのプレイリストの処理
 $(document).on('turbolinks:load',function(){
 $(function() {
   $('#slider').slick({
       slidesToShow: 4, //表示するスライドの数
       slidesToScroll: 4, //スクロールで切り替わるスライドの数
       responsive: [{
-        breakpoint: 640, //画面幅768pxで以下のセッティング
+        breakpoint: 640, //画面幅640pxで以下のセッティング
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
@@ -40,13 +41,14 @@ $(function() {
 });
 });
 
+// homes/topのユーザでの処理
 $(document).on('turbolinks:load',function(){
 $(function() {
   $('#slider2').slick({
       slidesToShow: 5, //表示するスライドの数
       slidesToScroll: 5, //スクロールで切り替わるスライドの数
       responsive: [{
-        breakpoint: 640, //画面幅768pxで以下のセッティング
+        breakpoint: 640, //画面幅640pxで以下のセッティング
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -71,7 +73,7 @@ $(function() {
 //   }
 // });
 
-
+// タブに関する処理
 $(document).on('turbolinks:load',function() {
   var tabs = $(".tab");
   $(".tab").on("click", function() {
@@ -91,6 +93,7 @@ $(document).on('turbolinks:load',function() {
 //   })
 // });
 
+// タグ付けの処理
 $(document).on('turbolinks:load',function(){
   if($("#formTagInput").length){
   $('#formTagInput').tagsInput({
