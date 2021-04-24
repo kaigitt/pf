@@ -18,11 +18,11 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-require File.expand_path(File.dirname(__FILE__) + "/environment")
+require File.expand_path(File.dirname(__FILE__) + "/environment")  # rootパス取得
 set :environment, :development  # 実行環境の指定
 set :output, 'log/crontab.log'
 set :environment, :development
 
-every :sunday, :at => '12pm' do
+every :saturday, :at => '05:24 pm' do
   runner 'Batch::ReportWeekly.report_weekly'
 end
