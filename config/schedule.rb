@@ -23,6 +23,7 @@ set :environment, :development  # 実行環境の指定
 set :output, 'log/crontab.log'
 set :environment, :development
 
-every :saturday, :at => '05:24 pm' do
+every :monday, :at => '06:27 pm' do
   runner 'Batch::ReportWeekly.report_weekly'
 end
+
