@@ -2,7 +2,7 @@ class SongsController < ApplicationController
   before_action :authenticate_user!
   require 'rspotify'
   require 'open-uri'
-  RSpotify.authenticate(ENV['SPOTIFY_CLIENT_ID'], ENV['SPOTIFY_SECRET_ID'])
+  #RSpotify.authenticate(ENV['SPOTIFY_CLIENT_ID'], ENV['SPOTIFY_SECRET_ID'])
 
   def new
     @song = Song.new
