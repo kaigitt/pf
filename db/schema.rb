@@ -71,14 +71,6 @@ ActiveRecord::Schema.define(version: 2021_04_08_140704) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "play_list_comments", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "play_list_id"
-    t.text "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "play_list_songs", force: :cascade do |t|
     t.integer "play_list_id"
     t.datetime "created_at", null: false
