@@ -24,6 +24,6 @@ module Musicrows
     end
 
     # rack-attack用
-    config.middleware.use Rack::Attack
+    #config.middleware.use Rack::Attack
   end
 end
