@@ -74,18 +74,21 @@ gem 'redis-rails'
 gem 'kaminari'
 
 gem 'dotenv-rails'
+
 group :production do
   gem 'mysql2'
-  gem 'capistrano-rails-console'
+  #gem 'capistrano-rails-console'
   gem 'listen', '>= 3.0.5', '< 3.2'
 end
 
 
 gem 'twitter'
 gem 'rspec-rails'
-gem 'factory_bot_rails'
+#gem 'factory_bot_rails'
+
 # グラフ用
 gem "chartkick"
 gem 'groupdate'
+
 # セキュリティ対策用
-gem 'rack-attack'
+#gem 'rack-attack'
