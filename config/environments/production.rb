@@ -64,7 +64,7 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "musicrows_#{Rails.env}"
 
-  config.action_mailer.default_url_options = {  :host => 'https://musicrows.com' }
+  config.action_mailer.default_url_options = {  :host => 'https://ab8e8b758ad74642b54e41413f0f54a3.vfs.cloud9.us-west-1.amazonaws.com/' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     port:                 587,
